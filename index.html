@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>diva_down</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@300;400;500;700&family=Syne:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="app-header">
+        <div class="logo-lockup">
+          <span class="logo-mark">DD</span>
+          <div class="logo-text">
+            <h1>diva_down</h1>
+            <p class="tagline">Closet meltdown. Infinite looks.</p>
+          </div>
+        </div>
+        <button id="newEventBtn" class="ghost-button" type="button">
+          New event
+        </button>
+      </header>
+
+      <main class="layout">
+        <section class="panel story-panel">
+          <div class="character-card">
+            <div class="character-portrait">
+              <svg
+                id="avatarSvg"
+                class="avatar-svg"
+                viewBox="0 0 180 260"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <!-- background halo -->
+                <defs>
+                  <radialGradient id="haloGrad" cx="50%" cy="10%" r="70%">
+                    <stop offset="0%" stop-color="#ffe8ff" stop-opacity="1" />
+                    <stop offset="55%" stop-color="#7a4bff" stop-opacity="0.9" />
+                    <stop offset="100%" stop-color="#150425" stop-opacity="1" />
+                  </radialGradient>
+                  <linearGradient id="skinGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#fdd9c5" />
+                    <stop offset="100%" stop-color="#f2a98e" />
+                  </linearGradient>
+                  <linearGradient id="hairDark" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#221426" />
+                    <stop offset="100%" stop-color="#4a305f" />
+                  </linearGradient>
+                </defs>
+
+                <rect
+                  x="0"
+                  y="0"
+                  width="180"
+                  height="260"
+                  fill="url(#haloGrad)"
+                  rx="28"
+                />
+
+                <!-- base body -->
+                <g id="base-girl">
+                  <!-- neck -->
+                  <rect
+                    x="80"
+                    y="74"
+                    width="20"
+                    height="20"
+                    rx="8"
+                    fill="url(#skinGrad)"
+                  />
+                  <!-- shoulders / chest -->
+                  <rect
+                    x="55"
+                    y="92"
+                    width="70"
+                    height="80"
+                    rx="32"
+                    fill="url(#skinGrad)"
+                  />
+                  <!-- arms -->
+                  <rect
+                    x="38"
+                    y="100"
+                    width="16"
+                    height="86"
+                    rx="10"
+                    fill="url(#skinGrad)"
+                  />
+                  <rect
+                    x="126"
+                    y="100"
+                    width="16"
+                    height="86"
+                    rx="10"
+                    fill="url(#skinGrad)"
+                  />
+                  <!-- head -->
+                  <circle
+                    cx="90"
+                    cy="60"
+                    r="26"
+                    fill="url(#skinGrad)"
+                    stroke="rgba(255,255,255,0.65)"
+                    stroke-width="1.2"
+                  />
+                  <!-- simple face -->
+                  <g id="face">
+                    <ellipse
+                      cx="82"
+                      cy="60"
+                      rx="3"
+                      ry="2"
+                      fill="#3a223b"
+                    />
+                    <ellipse
+                      cx="98"
+                      cy="60"
+                      rx="3"
+                      ry="2"
+                      fill="#3a223b"
+                    />
+                    <path
+                      d="M80 69 Q90 74 100 69"
+                      stroke="#c0697a"
+                      stroke-width="1.5"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </g>
+                  <!-- base hair (behind head) -->
+                  <path
+                    id="hair-base"
+                    d="M62 46 Q90 20 118 46 L126 98 Q90 116 54 98 Z"
+                    fill="url(#hairDark)"
+                  />
+                </g>
+
+                <!-- HAIR STYLES -->
+                <g id="hair-layer">
+                  <g id="hair_bubble-pigtails_art" class="avatar-piece">
+                    <path
+                      d="M60 42 Q90 18 120 42 Q118 24 108 15 Q96 8 84 10 Q70 12 64 22 Q60 30 60 42Z"
+                      fill="#3a1b4a"
+                    />
+                    <circle cx="60" cy="54" r="10" fill="#5c2a7a" />
+                    <circle cx="120" cy="54" r="10" fill="#5c2a7a" />
+                    <circle cx="60" cy="54" r="4" fill="#ffbdf5" />
+                    <circle cx="120" cy="54" r="4" fill="#ffbdf5" />
+                  </g>
+
+                  <g id="hair_sleek-bun_art" class="avatar-piece">
+                    <ellipse
+                      cx="90"
+                      cy="42"
+                      rx="30"
+                      ry="18"
+                      fill="#1b1025"
+                    />
+                    <circle cx="90" cy="30" r="11" fill="#1b1025" />
+                    <circle
+                      cx="90"
+                      cy="30"
+                      r="6"
+                      stroke="#4b3c72"
+                      stroke-width="1.8"
+                      fill="none"
+                    />
+                  </g>
+
+                  <g id="hair_beach-waves_art" class="avatar-piece">
+                    <path
+                      d="M60 38 Q90 14 120 38 Q124 74 116 104 Q106 132 90 140 Q74 132 64 104 Q56 74 60 38Z"
+                      fill="#d38f5b"
+                    />
+                    <path
+                      d="M70 60 Q80 52 90 60 Q100 68 110 60"
+                      stroke="#f2c18a"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </g>
+
+                  <g id="hair_space-buns_art" class="avatar-piece">
+                    <ellipse
+                      cx="90"
+                      cy="44"
+                      rx="30"
+                      ry="18"
+                      fill="#2b103f"
+                    />
+                    <circle cx="72" cy="30" r="9" fill="#4e2f94" />
+                    <circle cx="108" cy="30" r="9" fill="#4e2f94" />
+                    <circle cx="72" cy="30" r="4" fill="#ffefff" />
+                    <circle cx="108" cy="30" r="4" fill="#ffefff" />
+                    <circle cx="78" cy="50" r="2" fill="#ffe45f" />
+                    <circle cx="100" cy="52" r="2" fill="#7df9ff" />
+                  </g>
+
+                  <g id="hair_claw-clip_art" class="avatar-piece">
+                    <ellipse
+                      cx="90"
+                      cy="42"
+                      rx="30"
+                      ry="18"
+                      fill="#211626"
+                    />
+                    <rect
+                      x="77"
+                      y="28"
+                      width="26"
+                      height="8"
+                      rx="3"
+                      fill="#f5ede7"
+                    />
+                    <rect
+                      x="79"
+                      y="30"
+                      width="4"
+                      height="8"
+                      rx="2"
+                      fill="#d4c6bd"
+                    />
+                    <rect
+                      x="86"
+                      y="30"
+                      width="4"
+                      height="8"
+                      rx="2"
+                      fill="#d4c6bd"
+                    />
+                    <rect
+                      x="93"
+                      y="30"
+                      width="4"
+                      height="8"
+                      rx="2"
+                      fill="#d4c6bd"
+                    />
+                    <rect
+                      x="100"
+                      y="30"
+                      width="4"
+                      height="8"
+                      rx="2"
+                      fill="#d4c6bd"
+                    />
+                  </g>
+                </g>
+
+                <!-- DRESSES -->
+                <g id="dress-layer">
+                  <g id="dress_slip-dress_art" class="avatar-piece">
+                    <path
+                      d="M64 96 Q90 86 116 96 L122 190 Q90 210 58 190Z"
+                      fill="#f0a5c0"
+                    />
+                    <path
+                      d="M72 92 Q90 84 108 92"
+                      stroke="#ffdbe9"
+                      stroke-width="2"
+                      fill="none"
+                    />
+                  </g>
+
+                  <g id="dress_ballgown_art" class="avatar-piece">
+                    <path
+                      d="M64 96 Q90 88 116 96 L138 210 Q90 234 42 210Z"
+                      fill="#4a215e"
+                    />
+                    <path
+                      d="M50 156 Q90 142 130 156"
+                      stroke="#b67bff"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-dasharray="4 4"
+                      opacity="0.9"
+                    />
+                    <circle cx="78" cy="170" r="2" fill="#ffd6ff" />
+                    <circle cx="102" cy="182" r="2" fill="#ffd6ff" />
+                    <circle cx="90" cy="200" r="2" fill="#ffd6ff" />
+                  </g>
+
+                  <g id="dress_metallic-mini_art" class="avatar-piece">
+                    <rect
+                      x="64"
+                      y="96"
+                      width="52"
+                      height="64"
+                      rx="18"
+                      fill="#f6f0ff"
+                    />
+                    <path
+                      d="M64 120 Q90 108 116 120"
+                      stroke="#c6b3ff"
+                      stroke-width="2"
+                      fill="none"
+                    />
+                    <rect
+                      x="66"
+                      y="98"
+                      width="12"
+                      height="18"
+                      rx="8"
+                      fill="rgba(255,255,255,0.65)"
+                    />
+                    <rect
+                      x="102"
+                      y="98"
+                      width="12"
+                      height="18"
+                      rx="8"
+                      fill="rgba(255,255,255,0.4)"
+                    />
+                  </g>
+
+                  <g id="dress_cutout-knit_art" class="avatar-piece">
+                    <path
+                      d="M68 96 Q90 88 112 96 L120 210 Q90 228 60 210Z"
+                      fill="#f3c8a0"
+                    />
+                    <path
+                      d="M74 120 Q90 110 106 120"
+                      stroke="#fbe1c5"
+                      stroke-width="3"
+                      fill="none"
+                      stroke-dasharray="2 4"
+                    />
+                    <path
+                      d="M72 150 Q90 140 108 150"
+                      stroke="#fbe1c5"
+                      stroke-width="3"
+                      fill="none"
+                      stroke-dasharray="2 4"
+                    />
+                  </g>
+
+                  <g id="dress_archi-column_art" class="avatar-piece">
+                    <rect
+                      x="70"
+                      y="96"
+                      width="40"
+                      height="110"
+                      rx="12"
+                      fill="#f2f2f5"
+                    />
+                    <path
+                      d="M70 132 Q90 122 110 132"
+                      stroke="#c4c7d4"
+                      stroke-width="2"
+                      fill="none"
+                    />
+                    <rect
+                      x="70"
+                      y="160"
+                      width="40"
+                      height="30"
+                      rx="10"
+                      fill="#d9dde7"
+                    />
+                  </g>
+                </g>
+
+                <!-- TOPS -->
+                <g id="top-layer">
+                  <g id="top_mesh-long-sleeve_art" class="avatar-piece">
+                    <rect
+                      x="52"
+                      y="96"
+                      width="76"
+                      height="46"
+                      rx="24"
+                      fill="rgba(134,88,214,0.4)"
+                      stroke="rgba(255,255,255,0.4)"
+                      stroke-width="1.2"
+                    />
+                    <path
+                      d="M54 106 L126 132"
+                      stroke="rgba(255,255,255,0.3)"
+                      stroke-width="1"
+                    />
+                    <path
+                      d="M54 118 L126 144"
+                      stroke="rgba(255,255,255,0.3)"
+                      stroke-width="1"
+                    />
+                  </g>
+
+                  <g id="top_corset_art" class="avatar-piece">
+                    <path
+                      d="M56 96 L124 96 L118 138 Q90 150 62 138Z"
+                      fill="#642f76"
+                    />
+                    <path
+                      d="M90 96 L90 144"
+                      stroke="#fce6ff"
+                      stroke-width="1.5"
+                    />
+                    <circle cx="90" cy="104" r="1.4" fill="#fce6ff" />
+                    <circle cx="90" cy="114" r="1.4" fill="#fce6ff" />
+                    <circle cx="90" cy="124" r="1.4" fill="#fce6ff" />
+                    <circle cx="90" cy="134" r="1.4" fill="#fce6ff" />
+                  </g>
+
+                  <g id="top_baby-tee_art" class="avatar-piece">
+                    <path
+                      d="M60 98 Q90 86 120 98 L116 132 Q90 140 64 132Z"
+                      fill="#ffb9dd"
+                    />
+                    <text
+                      x="90"
+                      y="118"
+                      text-anchor="middle"
+                      font-size="8"
+                      fill="#7d1d4b"
+                    >
+                      ANGEL
+                    </text>
+                  </g>
+
+                  <g id="top_satin-cami_art" class="avatar-piece">
+                    <path
+                      d="M66 96 Q90 86 114 96 L118 132 Q90 144 62 132Z"
+                      fill="#f7d5c8"
+                    />
+                    <path
+                      d="M66 96 L72 84"
+                      stroke="#f7d5c8"
+                      stroke-width="2"
+                    />
+                    <path
+                      d="M114 96 L108 84"
+                      stroke="#f7d5c8"
+                      stroke-width="2"
+                    />
+                  </g>
+
+                  <g id="top_oversized-shirt_art" class="avatar-piece">
+                    <path
+                      d="M50 96 Q90 88 130 96 L126 140 Q90 154 54 140Z"
+                      fill="#f1f6f0"
+                    />
+                    <path
+                      d="M88 96 L92 146"
+                      stroke="#c7d3c7"
+                      stroke-width="1.5"
+                    />
+                    <circle cx="90" cy="104" r="1.3" fill="#c7d3c7" />
+                    <circle cx="90" cy="116" r="1.3" fill="#c7d3c7" />
+                    <circle cx="90" cy="128" r="1.3" fill="#c7d3c7" />
+                  </g>
+                </g>
+
+                <!-- BOTTOMS -->
+                <g id="bottom-layer">
+                  <g id="bottom_cargo-mini_art" class="avatar-piece">
+                    <rect
+                      x="62"
+                      y="140"
+                      width="56"
+                      height="38"
+                      rx="10"
+                      fill="#717bff"
+                    />
+                    <rect
+                      x="66"
+                      y="150"
+                      width="14"
+                      height="10"
+                      rx="3"
+                      fill="#9aa3ff"
+                    />
+                    <rect
+                      x="100"
+                      y="150"
+                      width="14"
+                      height="10"
+                      rx="3"
+                      fill="#9aa3ff"
+                    />
+                    <rect
+                      x="83"
+                      y="140"
+                      width="14"
+                      height="4"
+                      rx="2"
+                      fill="#c6cdff"
+                    />
+                  </g>
+
+                  <g id="bottom_lowrise-jeans_art" class="avatar-piece">
+                    <path
+                      d="M64 140 Q90 134 116 140 L118 208 L108 216 L72 216 L62 208Z"
+                      fill="#4d77a5"
+                    />
+                    <path
+                      d="M88 140 Q90 144 92 140"
+                      stroke="#f6f9ff"
+                      stroke-width="1.5"
+                    />
+                    <circle cx="84" cy="146" r="1.4" fill="#f6f9ff" />
+                    <circle cx="96" cy="146" r="1.4" fill="#f6f9ff" />
+                  </g>
+
+                  <g id="bottom_tulle-skirt_art" class="avatar-piece">
+                    <path
+                      d="M60 142 Q90 134 120 142 L136 196 Q90 214 44 196Z"
+                      fill="#f4c6ff"
+                      opacity="0.9"
+                    />
+                    <path
+                      d="M52 168 Q90 158 128 168"
+                      stroke="#ffe6ff"
+                      stroke-width="2"
+                      fill="none"
+                    />
+                  </g>
+
+                  <g id="bottom_tailored-trousers_art" class="avatar-piece">
+                    <path
+                      d="M66 140 Q90 134 114 140 L118 210 L104 220 L90 210 L76 220 L62 210Z"
+                      fill="#262634"
+                    />
+                    <path
+                      d="M90 140 L90 208"
+                      stroke="#4a4a65"
+                      stroke-width="1.2"
+                    />
+                  </g>
+
+                  <g id="bottom_knitted-shorts_art" class="avatar-piece">
+                    <rect
+                      x="64"
+                      y="144"
+                      width="52"
+                      height="32"
+                      rx="12"
+                      fill="#f1c9aa"
+                    />
+                    <path
+                      d="M64 160 Q90 152 116 160"
+                      stroke="#f7dcc5"
+                      stroke-width="3"
+                      fill="none"
+                      stroke-dasharray="2 3"
+                    />
+                  </g>
+                </g>
+
+                <!-- SHOES -->
+                <g id="shoes-layer">
+                  <g id="shoes_holographic-platforms_art" class="avatar-piece">
+                    <rect
+                      x="60"
+                      y="216"
+                      width="26"
+                      height="10"
+                      rx="4"
+                      fill="#f7f0ff"
+                    />
+                    <rect
+                      x="94"
+                      y="216"
+                      width="26"
+                      height="10"
+                      rx="4"
+                      fill="#f7f0ff"
+                    />
+                    <rect
+                      x="60"
+                      y="224"
+                      width="26"
+                      height="8"
+                      rx="3"
+                      fill="#c0b7ff"
+                    />
+                    <rect
+                      x="94"
+                      y="224"
+                      width="26"
+                      height="8"
+                      rx="3"
+                      fill="#c0b7ff"
+                    />
+                  </g>
+
+                  <g id="shoes_satin-heels_art" class="avatar-piece">
+                    <path
+                      d="M60 218 L78 218 L82 224 L66 224Z"
+                      fill="#f9b8c6"
+                    />
+                    <path d="M96 218 L114 218 L118 224 L102 224Z" fill="#f9b8c6" />
+                    <rect
+                      x="62"
+                      y="224"
+                      width="3"
+                      height="7"
+                      fill="#f3a2b5"
+                    />
+                    <rect
+                      x="112"
+                      y="224"
+                      width="3"
+                      height="7"
+                      fill="#f3a2b5"
+                    />
+                  </g>
+
+                  <g id="shoes_pointed-flats_art" class="avatar-piece">
+                    <path
+                      d="M60 218 L78 218 L70 226Z"
+                      fill="#f3f0f5"
+                    />
+                    <path
+                      d="M102 218 L120 218 L112 226Z"
+                      fill="#f3f0f5"
+                    />
+                  </g>
+
+                  <g id="shoes_beaded-sandals_art" class="avatar-piece">
+                    <rect
+                      x="58"
+                      y="220"
+                      width="26"
+                      height="4"
+                      rx="2"
+                      fill="#f0e3c0"
+                    />
+                    <rect
+                      x="96"
+                      y="220"
+                      width="26"
+                      height="4"
+                      rx="2"
+                      fill="#f0e3c0"
+                    />
+                    <circle cx="62" cy="220" r="1.3" fill="#ff9ab3" />
+                    <circle cx="70" cy="220" r="1.3" fill="#78ffe0" />
+                    <circle cx="78" cy="220" r="1.3" fill="#ffd56b" />
+                    <circle cx="100" cy="220" r="1.3" fill="#ff9ab3" />
+                    <circle cx="108" cy="220" r="1.3" fill="#78ffe0" />
+                    <circle cx="116" cy="220" r="1.3" fill="#ffd56b" />
+                  </g>
+
+                  <g id="shoes_furry-mules_art" class="avatar-piece">
+                    <rect
+                      x="60"
+                      y="218"
+                      width="24"
+                      height="6"
+                      rx="3"
+                      fill="#fdd9ff"
+                    />
+                    <rect
+                      x="98"
+                      y="218"
+                      width="24"
+                      height="6"
+                      rx="3"
+                      fill="#fdd9ff"
+                    />
+                    <ellipse
+                      cx="72"
+                      cy="220"
+                      rx="10"
+                      ry="5"
+                      fill="#ffeefd"
+                    />
+                    <ellipse
+                      cx="110"
+                      cy="220"
+                      rx="10"
+                      ry="5"
+                      fill="#ffeefd"
+                    />
+                  </g>
+                </g>
+
+                <!-- ACCESSORIES -->
+                <g id="accessories-layer">
+                  <g id="acc_neon-sunnies_art" class="avatar-piece">
+                    <rect
+                      x="70"
+                      y="54"
+                      width="16"
+                      height="6"
+                      rx="3"
+                      fill="#4cf5ff"
+                    />
+                    <rect
+                      x="94"
+                      y="54"
+                      width="16"
+                      height="6"
+                      rx="3"
+                      fill="#4cf5ff"
+                    />
+                    <rect
+                      x="86"
+                      y="56"
+                      width="8"
+                      height="2"
+                      fill="#befdff"
+                    />
+                  </g>
+
+                  <g id="acc_pearl-choker_art" class="avatar-piece">
+                    <circle cx="78" cy="80" r="2" fill="#fff3ff" />
+                    <circle cx="84" cy="81" r="2" fill="#fff3ff" />
+                    <circle cx="90" cy="82" r="2" fill="#fff3ff" />
+                    <circle cx="96" cy="81" r="2" fill="#fff3ff" />
+                    <circle cx="102" cy="80" r="2" fill="#fff3ff" />
+                  </g>
+
+                  <g id="acc_butterfly-clips_art" class="avatar-piece">
+                    <path
+                      d="M68 48 L72 44 L76 48 L72 52Z"
+                      fill="#ffb8f2"
+                    />
+                    <path
+                      d="M104 48 L108 44 L112 48 L108 52Z"
+                      fill="#ffb8f2"
+                    />
+                  </g>
+
+                  <g id="acc_giant-tote_art" class="avatar-piece">
+                    <rect
+                      x="120"
+                      y="128"
+                      width="26"
+                      height="34"
+                      rx="6"
+                      fill="#f6efe0"
+                    />
+                    <path
+                      d="M124 128 Q133 118 142 128"
+                      stroke="#e0d1b3"
+                      stroke-width="2"
+                      fill="none"
+                    />
+                  </g>
+
+                  <g id="acc_gold-earrings_art" class="avatar-piece">
+                    <circle
+                      cx="72"
+                      cy="66"
+                      r="4"
+                      stroke="#f3b85c"
+                      stroke-width="2"
+                      fill="none"
+                    />
+                    <circle
+                      cx="108"
+                      cy="66"
+                      r="4"
+                      stroke="#f3b85c"
+                      stroke-width="2"
+                      fill="none"
+                    />
+                  </g>
+
+                  <g id="acc_opera-gloves_art" class="avatar-piece">
+                    <rect
+                      x="38"
+                      y="110"
+                      width="14"
+                      height="70"
+                      rx="7"
+                      fill="#f6ecff"
+                    />
+                    <rect
+                      x="128"
+                      y="110"
+                      width="14"
+                      height="70"
+                      rx="7"
+                      fill="#f6ecff"
+                    />
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <div class="speech-bubble" id="speechBubble">
+              <p>
+                Okay so… all my cards just declined. Tragic. Luckily my closet
+                is still insane. Help me pull a look before I spiral.
+              </p>
+            </div>
+          </div>
+
+          <div class="event-card">
+            <div class="event-label">Tonight's chaos:</div>
+            <div id="eventName" class="event-name">Tap “New event” to start</div>
+            <p id="eventDescription" class="event-description"></p>
+            <button id="randomizeOutfitBtn" class="pill-button" type="button">
+              Randomize outfit
+            </button>
+          </div>
+        </section>
+
+        <section class="panel wardrobe-panel">
+          <h2>Closet chaos</h2>
+          <p class="hint">
+            Tap pieces to style her. Each event wants a different vibe.
+          </p>
+
+          <div id="categoriesContainer" class="categories-grid">
+            <!-- Filled by JS -->
+          </div>
+
+          <button id="submitOutfitBtn" class="primary-button" type="button">
+            Lock the look
+          </button>
+        </section>
+
+        <section class="panel rating-panel">
+          <h2>Vibe check</h2>
+          <div id="ratingScore" class="rating-score">– / 100</div>
+          <div id="ratingBadge" class="rating-badge rating-badge--idle">
+            Waiting for a look…
+          </div>
+          <div id="ratingNarrative" class="rating-narrative">
+            She’ll spill her honest thoughts here once you lock the look.
+          </div>
+        </section>
+      </main>
+
+      <footer class="app-footer">
+        <span>Built for dress-up drama.</span>
+        <span class="footer-dot">•</span>
+        <span>Refresh for new combos any time.</span>
+      </footer>
+    </div>
+
+    <script src="game.js"></script>
+  </body>
+</html>
+
