@@ -109,13 +109,14 @@ body {
 }
 
 .story-panel {
-  gap: 14px;
+  gap: 10px;
 }
 
 .character-card {
-  display: grid;
-  grid-template-columns: 1.1fr 1.5fr;
+  display: flex;
+  flex-direction: column;
   gap: 10px;
+  flex: 1;
 }
 
 .character-portrait {
@@ -127,11 +128,13 @@ body {
   align-items: flex-end;
   justify-content: center;
   overflow: hidden;
+  flex: 1;
+  min-height: 260px;
 }
 
 .avatar-svg {
-  width: 140px;
-  height: 220px;
+  width: 190px;
+  height: 280px;
   filter: drop-shadow(0 18px 26px rgba(0, 0, 0, 0.7));
 }
 
@@ -178,6 +181,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 6px;
+  margin-top: 4px;
 }
 
 .event-label {

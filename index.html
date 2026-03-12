@@ -45,8 +45,8 @@
                     <stop offset="100%" stop-color="#150425" stop-opacity="1" />
                   </radialGradient>
                   <linearGradient id="skinGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="#fdd9c5" />
-                    <stop offset="100%" stop-color="#f2a98e" />
+                    <stop offset="0%" stop-color="#f5c6a3" />
+                    <stop offset="100%" stop-color="#f5c6a3" />
                   </linearGradient>
                   <linearGradient id="hairDark" x1="0" y1="0" x2="1" y2="1">
                     <stop offset="0%" stop-color="#221426" />
@@ -180,37 +180,55 @@
                 <g id="base-girl">
                   <!-- neck -->
                   <rect
-                    x="80"
-                    y="74"
-                    width="20"
-                    height="20"
-                    rx="8"
+                    x="82"
+                    y="76"
+                    width="16"
+                    height="18"
+                    rx="7"
                     fill="url(#skinGrad)"
                   />
-                  <!-- shoulders / chest -->
+                  <!-- shoulders / upper torso (hourglass) -->
+                  <path
+                    d="M58 96 Q90 82 122 96 Q118 132 110 152 Q102 170 90 174 Q78 170 70 152 Q62 132 58 96Z"
+                    fill="url(#skinGrad)"
+                  />
+                  <!-- hips (wider than waist) -->
+                  <path
+                    d="M66 168 Q90 182 114 168 L118 194 Q104 206 90 208 Q76 206 62 194Z"
+                    fill="url(#skinGrad)"
+                  />
+                  <!-- legs (even bigger + longer) -->
                   <rect
-                    x="55"
-                    y="92"
-                    width="70"
-                    height="80"
-                    rx="32"
+                    x="72"
+                    y="194"
+                    width="14"
+                    height="60"
+                    rx="7"
+                    fill="url(#skinGrad)"
+                  />
+                  <rect
+                    x="94"
+                    y="194"
+                    width="14"
+                    height="60"
+                    rx="7"
                     fill="url(#skinGrad)"
                   />
                   <!-- arms -->
                   <rect
-                    x="38"
-                    y="100"
-                    width="16"
-                    height="86"
-                    rx="10"
+                    x="36"
+                    y="104"
+                    width="14"
+                    height="82"
+                    rx="9"
                     fill="url(#skinGrad)"
                   />
                   <rect
-                    x="126"
-                    y="100"
-                    width="16"
-                    height="86"
-                    rx="10"
+                    x="130"
+                    y="104"
+                    width="14"
+                    height="82"
+                    rx="9"
                     fill="url(#skinGrad)"
                   />
                   <!-- head -->
@@ -222,36 +240,102 @@
                     stroke="rgba(255,255,255,0.65)"
                     stroke-width="1.2"
                   />
-                  <!-- simple face -->
+                  <!-- detailed face -->
                   <g id="face">
+                    <!-- brows -->
+                    <path
+                      d="M78 54 Q82 52 86 54"
+                      stroke="#2b1630"
+                      stroke-width="1.2"
+                      stroke-linecap="round"
+                      fill="none"
+                    />
+                    <path
+                      d="M94 54 Q98 52 102 54"
+                      stroke="#2b1630"
+                      stroke-width="1.2"
+                      stroke-linecap="round"
+                      fill="none"
+                    />
+                    <!-- eyes -->
                     <ellipse
                       cx="82"
-                      cy="60"
-                      rx="3"
-                      ry="2"
-                      fill="#3a223b"
+                      cy="58"
+                      rx="4"
+                      ry="2.8"
+                      fill="#fdfbff"
                     />
                     <ellipse
                       cx="98"
-                      cy="60"
-                      rx="3"
-                      ry="2"
-                      fill="#3a223b"
+                      cy="58"
+                      rx="4"
+                      ry="2.8"
+                      fill="#fdfbff"
                     />
+                    <circle cx="82" cy="58" r="1.8" fill="#3a223b" />
+                    <circle cx="98" cy="58" r="1.8" fill="#3a223b" />
+                    <!-- lashes left -->
                     <path
-                      d="M80 69 Q90 74 100 69"
-                      stroke="#c0697a"
-                      stroke-width="1.5"
-                      fill="none"
+                      d="M78 56 L76 55"
+                      stroke="#2b1630"
+                      stroke-width="1"
                       stroke-linecap="round"
                     />
+                    <path
+                      d="M80 54.5 L78 53.5"
+                      stroke="#2b1630"
+                      stroke-width="1"
+                      stroke-linecap="round"
+                    />
+                    <path
+                      d="M84 54.5 L86 53.5"
+                      stroke="#2b1630"
+                      stroke-width="1"
+                      stroke-linecap="round"
+                    />
+                    <!-- lashes right -->
+                    <path
+                      d="M102 56 L104 55"
+                      stroke="#2b1630"
+                      stroke-width="1"
+                      stroke-linecap="round"
+                    />
+                    <path
+                      d="M100 54.5 L102 53.5"
+                      stroke="#2b1630"
+                      stroke-width="1"
+                      stroke-linecap="round"
+                    />
+                    <path
+                      d="M96 54.5 L94 53.5"
+                      stroke="#2b1630"
+                      stroke-width="1"
+                      stroke-linecap="round"
+                    />
+                    <!-- nose -->
+                    <path
+                      d="M90 58 Q91 62 89.5 64"
+                      stroke="#bf7a69"
+                      stroke-width="1"
+                      stroke-linecap="round"
+                      fill="none"
+                    />
+                    <!-- lips -->
+                    <path
+                      d="M80 69 Q90 76 100 69"
+                      stroke="#c96d7a"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      fill="none"
+                    />
+                    <path
+                      d="M82 69 Q90 72 98 69"
+                      stroke="#f1a2b0"
+                      stroke-width="1"
+                      stroke-linecap="round"
+                      fill="none"
+                    />
                   </g>
-                  <!-- base hair (neck-length back) -->
-                  <path
-                    id="hair-base"
-                    d="M62 46 Q90 20 118 46 L126 98 Q90 116 54 98 Z"
-                    fill="url(#hairDark)"
-                  />
                 </g>
 
                 <!-- DRESSES -->
