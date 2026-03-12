@@ -63,85 +63,7 @@
                   rx="28"
                 />
 
-                <!-- base body -->
-                <g id="base-girl">
-                  <!-- neck -->
-                  <rect
-                    x="80"
-                    y="74"
-                    width="20"
-                    height="20"
-                    rx="8"
-                    fill="url(#skinGrad)"
-                  />
-                  <!-- shoulders / chest -->
-                  <rect
-                    x="55"
-                    y="92"
-                    width="70"
-                    height="80"
-                    rx="32"
-                    fill="url(#skinGrad)"
-                  />
-                  <!-- arms -->
-                  <rect
-                    x="38"
-                    y="100"
-                    width="16"
-                    height="86"
-                    rx="10"
-                    fill="url(#skinGrad)"
-                  />
-                  <rect
-                    x="126"
-                    y="100"
-                    width="16"
-                    height="86"
-                    rx="10"
-                    fill="url(#skinGrad)"
-                  />
-                  <!-- head -->
-                  <circle
-                    cx="90"
-                    cy="60"
-                    r="26"
-                    fill="url(#skinGrad)"
-                    stroke="rgba(255,255,255,0.65)"
-                    stroke-width="1.2"
-                  />
-                  <!-- simple face -->
-                  <g id="face">
-                    <ellipse
-                      cx="82"
-                      cy="60"
-                      rx="3"
-                      ry="2"
-                      fill="#3a223b"
-                    />
-                    <ellipse
-                      cx="98"
-                      cy="60"
-                      rx="3"
-                      ry="2"
-                      fill="#3a223b"
-                    />
-                    <path
-                      d="M80 69 Q90 74 100 69"
-                      stroke="#c0697a"
-                      stroke-width="1.5"
-                      fill="none"
-                      stroke-linecap="round"
-                    />
-                  </g>
-                  <!-- base hair (behind head) -->
-                  <path
-                    id="hair-base"
-                    d="M62 46 Q90 20 118 46 L126 98 Q90 116 54 98 Z"
-                    fill="url(#hairDark)"
-                  />
-                </g>
-
-                <!-- HAIR STYLES -->
+                <!-- HAIR STYLES (drawn behind face) -->
                 <g id="hair-layer">
                   <g id="hair_bubble-pigtails_art" class="avatar-piece">
                     <path
@@ -252,6 +174,84 @@
                       fill="#d4c6bd"
                     />
                   </g>
+                </g>
+
+                <!-- base body / face drawn on top -->
+                <g id="base-girl">
+                  <!-- neck -->
+                  <rect
+                    x="80"
+                    y="74"
+                    width="20"
+                    height="20"
+                    rx="8"
+                    fill="url(#skinGrad)"
+                  />
+                  <!-- shoulders / chest -->
+                  <rect
+                    x="55"
+                    y="92"
+                    width="70"
+                    height="80"
+                    rx="32"
+                    fill="url(#skinGrad)"
+                  />
+                  <!-- arms -->
+                  <rect
+                    x="38"
+                    y="100"
+                    width="16"
+                    height="86"
+                    rx="10"
+                    fill="url(#skinGrad)"
+                  />
+                  <rect
+                    x="126"
+                    y="100"
+                    width="16"
+                    height="86"
+                    rx="10"
+                    fill="url(#skinGrad)"
+                  />
+                  <!-- head -->
+                  <circle
+                    cx="90"
+                    cy="60"
+                    r="26"
+                    fill="url(#skinGrad)"
+                    stroke="rgba(255,255,255,0.65)"
+                    stroke-width="1.2"
+                  />
+                  <!-- simple face -->
+                  <g id="face">
+                    <ellipse
+                      cx="82"
+                      cy="60"
+                      rx="3"
+                      ry="2"
+                      fill="#3a223b"
+                    />
+                    <ellipse
+                      cx="98"
+                      cy="60"
+                      rx="3"
+                      ry="2"
+                      fill="#3a223b"
+                    />
+                    <path
+                      d="M80 69 Q90 74 100 69"
+                      stroke="#c0697a"
+                      stroke-width="1.5"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </g>
+                  <!-- base hair (neck-length back) -->
+                  <path
+                    id="hair-base"
+                    d="M62 46 Q90 20 118 46 L126 98 Q90 116 54 98 Z"
+                    fill="url(#hairDark)"
+                  />
                 </g>
 
                 <!-- DRESSES -->
