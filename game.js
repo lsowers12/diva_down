@@ -95,8 +95,8 @@ function randomPick(list) {
 
 function resetSelections() {
   state.selections = {};
-  const pills = el.categoriesContainer.querySelectorAll(".item-pill");
-  pills.forEach((pill) => pill.classList.remove("selected"));
+  const tiles = el.categoriesContainer.querySelectorAll(".closet-item");
+  tiles.forEach((tile) => tile.classList.remove("selected"));
   renderCharacterLook();
 }
 
@@ -118,28 +118,36 @@ function renderCategories() {
     const shuffled = [...category.items].sort(() => Math.random() - 0.5);
 
     shuffled.forEach((item) => {
-      const pill = document.createElement("button");
-      pill.type = "button";
-      pill.className = "item-pill";
-      pill.textContent = item.label;
-      pill.dataset.categoryId = category.id;
-      pill.dataset.itemId = item.id;
+      const tile = document.createElement("button");
+      tile.type = "button";
+      tile.className = "closet-item";
+      tile.dataset.categoryId = category.id;
+      tile.dataset.itemId = item.id;
+      tile.title = item.tags.join(", ");
 
-      pill.addEventListener("click", () => {
+      tile.innerHTML = `
+        <div class="closet-item-inner">
+          <div class="closet-item-hanger"></div>
+          <div class="closet-item-photo closet-visual-${item.id}"></div>
+          <div class="closet-item-label">${item.label}</div>
+        </div>
+      `;
+
+      tile.addEventListener("click", () => {
         const currentlySelected = state.selections[category.id];
         if (currentlySelected === item.id) {
           delete state.selections[category.id];
-          pill.classList.remove("selected");
+          tile.classList.remove("selected");
         } else {
-          const siblings = wrapper.querySelectorAll(".item-pill");
+          const siblings = wrapper.querySelectorAll(".closet-item");
           siblings.forEach((sib) => sib.classList.remove("selected"));
           state.selections[category.id] = item.id;
-          pill.classList.add("selected");
+          tile.classList.add("selected");
         }
         renderCharacterLook();
       });
 
-      itemsRow.appendChild(pill);
+      itemsRow.appendChild(tile);
     });
 
     wrapper.appendChild(header);
@@ -194,15 +202,15 @@ function resetRating() {
 }
 
 function randomizeOutfit() {
-  const pills = el.categoriesContainer.querySelectorAll(".item-pill");
-  pills.forEach((pill) => pill.classList.remove("selected"));
+  const tiles = el.categoriesContainer.querySelectorAll(".closet-item");
+  tiles.forEach((tile) => tile.classList.remove("selected"));
 
   state.selections = {};
 
   closetConfig.forEach((category) => {
     const itemsInCat = Array.from(
       el.categoriesContainer.querySelectorAll(
-        `.category[data-category-id="${category.id}"] .item-pill`
+        `.category[data-category-id="${category.id}"] .closet-item`
       )
     );
     if (!itemsInCat.length) return;
