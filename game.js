@@ -75,7 +75,6 @@ const state = {
 
 const el = {
   newEventBtn: document.getElementById("newEventBtn"),
-  randomizeOutfitBtn: document.getElementById("randomizeOutfitBtn"),
   submitOutfitBtn: document.getElementById("submitOutfitBtn"),
   eventName: document.getElementById("eventName"),
   eventDescription: document.getElementById("eventDescription"),
@@ -85,6 +84,7 @@ const el = {
   ratingNarrative: document.getElementById("ratingNarrative"),
   speechBubble: document.getElementById("speechBubble"),
   avatarSvg: document.getElementById("avatarSvg"),
+  characterPortrait: document.querySelector(".character-portrait"),
 };
 
 const API_BASE = "http://localhost:4000/api";
@@ -184,6 +184,8 @@ function pickNewEvent() {
         event.name +
         "</strong>. Dig into the closet and make it make sense.</p>";
 
+      applyEventTheme(event.id);
+
       resetSelections();
       resetRating();
     })
@@ -191,6 +193,19 @@ function pickNewEvent() {
       el.speechBubble.innerHTML =
         "<p>My cards and the server are both declining. Try again in a sec.</p>";
     });
+}
+
+function applyEventTheme(eventId) {
+  if (!el.characterPortrait) return;
+
+  const allIds = ["rave", "ball", "y2k", "gallery", "beach", "date"];
+  allIds.forEach((id) => {
+    el.characterPortrait.classList.remove(`event-${id}`);
+  });
+
+  if (allIds.includes(eventId)) {
+    el.characterPortrait.classList.add(`event-${eventId}`);
+  }
 }
 
 function resetRating() {
@@ -314,10 +329,6 @@ function init() {
 
   el.newEventBtn.addEventListener("click", () => {
     pickNewEvent();
-  });
-
-  el.randomizeOutfitBtn.addEventListener("click", () => {
-    randomizeOutfit();
   });
 
   el.submitOutfitBtn.addEventListener("click", () => {

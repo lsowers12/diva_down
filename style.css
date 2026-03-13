@@ -132,6 +132,54 @@ body {
   min-height: 260px;
 }
 
+/* Event-driven scene backgrounds */
+.character-portrait.event-rave {
+  background:
+    radial-gradient(circle at top, rgba(255, 0, 200, 0.3), transparent 55%),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(124, 255, 255, 0.4),
+      rgba(124, 255, 255, 0.4) 2px,
+      transparent 2px,
+      transparent 6px
+    ),
+    radial-gradient(circle at 80% 10%, #7affff, #050014 70%);
+}
+
+.character-portrait.event-ball {
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.6), transparent 60%),
+    linear-gradient(to top, #20102f 0, #50306f 35%, #fbe6ff 100%);
+}
+
+.character-portrait.event-y2k {
+  background:
+    radial-gradient(circle at top, #ffe4ff 0, #ff9ad7 45%, #1a0223 100%);
+}
+
+.character-portrait.event-gallery {
+  background:
+    repeating-linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.12),
+      rgba(255, 255, 255, 0.12) 1px,
+      transparent 1px,
+      transparent 18px
+    ),
+    linear-gradient(to top, #05050a 0, #26263b 45%, #f3f5ff 100%);
+}
+
+.character-portrait.event-beach {
+  background:
+    linear-gradient(to top, #1e375a 0, #67b7ff 30%, #ffe7a3 55%, #fffbf0 100%);
+}
+
+.character-portrait.event-date {
+  background:
+    radial-gradient(circle at 20% 0, rgba(255, 86, 146, 0.6), transparent 60%),
+    linear-gradient(to top, #1a0618 0, #4a1d3c 40%, #fdd6e5 100%);
+}
+
 .avatar-svg {
   width: 190px;
   height: 280px;
