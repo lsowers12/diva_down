@@ -336,6 +336,122 @@
                   </g>
                 </g>
 
+                <!-- MAKEUP LOOKS -->
+                <g id="makeup-layer">
+                  <!-- soft glam: warm blush + glossy lip -->
+                  <g id="makeup_soft-glam_art" class="avatar-piece">
+                    <ellipse
+                      cx="80"
+                      cy="64"
+                      rx="4.5"
+                      ry="2.6"
+                      fill="rgba(244, 152, 142, 0.6)"
+                    />
+                    <ellipse
+                      cx="100"
+                      cy="64"
+                      rx="4.5"
+                      ry="2.6"
+                      fill="rgba(244, 152, 142, 0.6)"
+                    />
+                    <path
+                      d="M82 70 Q90 74 98 70"
+                      stroke="#f49baf"
+                      stroke-width="2.2"
+                      stroke-linecap="round"
+                    />
+                    <path
+                      d="M82 70 Q90 72.5 98 70"
+                      stroke="#ffd0de"
+                      stroke-width="1.2"
+                      stroke-linecap="round"
+                    />
+                  </g>
+
+                  <!-- rave glitter liner -->
+                  <g id="makeup_glitter-liner_art" class="avatar-piece">
+                    <path
+                      d="M76 56 Q82 52 88 56"
+                      stroke="#7df9ff"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                    />
+                    <path
+                      d="M92 56 Q98 52 104 56"
+                      stroke="#ff9df2"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                    />
+                    <circle cx="80" cy="54" r="0.8" fill="#ffffff" />
+                    <circle cx="86" cy="54" r="0.8" fill="#ffffff" />
+                    <circle cx="94" cy="54" r="0.8" fill="#ffffff" />
+                    <circle cx="100" cy="54" r="0.8" fill="#ffffff" />
+                  </g>
+
+                  <!-- sunkissed bronze -->
+                  <g id="makeup_sunkissed_art" class="avatar-piece">
+                    <path
+                      d="M74 63 Q90 70 106 63"
+                      stroke="rgba(193, 120, 70, 0.9)"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                    />
+                    <ellipse
+                      cx="90"
+                      cy="74"
+                      rx="10"
+                      ry="4"
+                      fill="rgba(201, 125, 80, 0.7)"
+                    />
+                  </g>
+
+                  <!-- clean girl -->
+                  <g id="makeup_clean-girl_art" class="avatar-piece">
+                    <ellipse
+                      cx="82"
+                      cy="58"
+                      rx="3.6"
+                      ry="2.4"
+                      fill="#fdfbff"
+                    />
+                    <ellipse
+                      cx="98"
+                      cy="58"
+                      rx="3.6"
+                      ry="2.4"
+                      fill="#fdfbff"
+                    />
+                    <circle cx="82" cy="58" r="1.4" fill="#2a1a2c" />
+                    <circle cx="98" cy="58" r="1.4" fill="#2a1a2c" />
+                    <path
+                      d="M82 68 Q90 70 98 68"
+                      stroke="#e8a9b0"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                    />
+                  </g>
+
+                  <!-- siren smoky eye -->
+                  <g id="makeup_siren_art" class="avatar-piece">
+                    <path
+                      d="M76 56 Q82 52 88 56 Q84 58 80 58Z"
+                      fill="#4b2338"
+                      opacity="0.9"
+                    />
+                    <path
+                      d="M92 56 Q98 52 104 56 Q100 58 96 58Z"
+                      fill="#4b2338"
+                      opacity="0.9"
+                    />
+                    <path
+                      d="M80 68 Q90 74 100 68"
+                      stroke="#99324f"
+                      stroke-width="2.2"
+                      stroke-linecap="round"
+                    />
+                  </g>
+                </g>
+
                 <!-- DRESSES -->
                 <g id="dress-layer">
                   <g id="dress_slip-dress_art" class="avatar-piece">
@@ -888,9 +1004,6 @@
 
         <section class="panel wardrobe-panel">
           <h2>Closet chaos</h2>
-          <p class="hint">
-            Tap pieces to style her. Each event wants a different vibe.
-          </p>
 
           <div id="categoriesContainer" class="categories-grid">
             <!-- Filled by JS -->
@@ -913,11 +1026,7 @@
         </section>
       </main>
 
-      <footer class="app-footer">
-        <span>Built for dress-up drama.</span>
-        <span class="footer-dot">•</span>
-        <span>Refresh for new combos any time.</span>
-      </footer>
+      <!-- footer intentionally empty to keep focus on the game and avoid covering the action buttons -->
     </div>
 
     <script src="game.js"></script>

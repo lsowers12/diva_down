@@ -69,6 +69,17 @@ const closetConfig = [
     ],
   },
   {
+    id: "makeup",
+    label: "Makeup",
+    items: [
+      { id: "makeup_soft-glam", label: "Soft glam neutral", tags: ["soft", "glam", "date", "ball"] },
+      { id: "makeup_glitter-liner", label: "Neon glitter liner", tags: ["neon", "glitter", "rave", "y2k"] },
+      { id: "makeup_sunkissed", label: "Sunkissed bronze", tags: ["beach", "glow"] },
+      { id: "makeup_clean-girl", label: "Clean girl minimal", tags: ["gallery", "minimal"] },
+      { id: "makeup_siren", label: "Siren smoky eye", tags: ["dramatic", "date", "ball"] },
+    ],
+  },
+  {
     id: "top",
     label: "Tops",
     items: [
