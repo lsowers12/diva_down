@@ -1,8 +1,11 @@
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
+const sqlite3 = require("sqlite3").verbose();
 
 const app = express();
 const PORT = process.env.PORT || 4000;
+const DB_PATH = path.join(__dirname, "diva_down.db");
 
 app.use(
   cors({
@@ -11,7 +14,9 @@ app.use(
 );
 app.use(express.json());
 
-const events = [
+// --- In-memory seed data (used to populate DB on first run) ---
+
+const seedEvents = [
   {
     id: "rave",
     name: "Neon Rave in a Warehouse",
@@ -137,6 +142,50 @@ const closetConfig = [
   },
 ];
 
+// --- SQLite setup ---
+
+const db = new sqlite3.Database(DB_PATH);
+
+db.serialize(() => {
+  db.run(
+    `CREATE TABLE IF NOT EXISTS events (
+      id TEXT PRIMARY KEY,
+      name TEXT NOT NULL,
+      description TEXT NOT NULL,
+      idealTags TEXT NOT NULL
+    )`
+  );
+
+  db.run(
+    `CREATE TABLE IF NOT EXISTS outfits (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      eventId TEXT NOT NULL,
+      selections TEXT NOT NULL,
+      score INTEGER NOT NULL,
+      tier TEXT NOT NULL,
+      createdAt TEXT NOT NULL
+    )`
+  );
+
+  // Seed events table if empty
+  db.get("SELECT COUNT(*) AS count FROM events", (err, row) => {
+    if (err) {
+      console.error("Failed to count events:", err);
+      return;
+    }
+    if (row.count === 0) {
+      const stmt = db.prepare(
+        "INSERT INTO events (id, name, description, idealTags) VALUES (?, ?, ?, ?)"
+      );
+      seedEvents.forEach((e) => {
+        stmt.run(e.id, e.name, e.description, JSON.stringify(e.idealTags));
+      });
+      stmt.finalize();
+      console.log("Seeded events table with default events.");
+    }
+  });
+});
+
 function randomPick(list) {
   return list[Math.floor(Math.random() * list.length)];
 }
@@ -161,7 +210,7 @@ function computeRating(payload) {
     };
   }
 
-  const event = events.find((e) => e.id === eventId);
+  const event = seedEvents.find((e) => e.id === eventId);
   if (!event) {
     return {
       score: 0,
@@ -271,16 +320,81 @@ function buildAnecdote(event, items, score, tier) {
   };
 }
 
+// --- API routes backed by SQLite ---
+
+// Random event from DB with optional "not same as last" logic
 app.get("/api/events/random", (req, res) => {
-  const previousId = req.query.previousId;
-  const pool = previousId ? events.filter((e) => e.id !== previousId) : events;
-  const event = randomPick(pool);
-  res.json(event);
+  const previousId = req.query.previousId || null;
+
+  const sql =
+    previousId != null
+      ? "SELECT id, name, description, idealTags FROM events WHERE id != ?"
+      : "SELECT id, name, description, idealTags FROM events";
+
+  db.all(sql, previousId != null ? [previousId] : [], (err, rows) => {
+    if (err) {
+      console.error("Error querying events:", err);
+      return res.status(500).json({ error: "Failed to load events" });
+    }
+    if (!rows.length) {
+      return res.status(404).json({ error: "No events available" });
+    }
+    const row = randomPick(rows);
+    const idealTags = JSON.parse(row.idealTags);
+    res.json({
+      id: row.id,
+      name: row.name,
+      description: row.description,
+      idealTags,
+    });
+  });
 });
 
+// Rate an outfit and persist it to DB
 app.post("/api/rate", (req, res) => {
-  const result = computeRating(req.body || {});
-  res.json(result);
+  const payload = req.body || {};
+  const result = computeRating(payload);
+
+  const createdAt = new Date().toISOString();
+  db.run(
+    "INSERT INTO outfits (eventId, selections, score, tier, createdAt) VALUES (?, ?, ?, ?, ?)",
+    [
+      payload.eventId || null,
+      JSON.stringify(payload.selections || {}),
+      result.score,
+      result.tier,
+      createdAt,
+    ],
+    (err) => {
+      if (err) {
+        console.error("Failed to save outfit:", err);
+      }
+      res.json(result);
+    }
+  );
+});
+
+// Simple history endpoint (latest 20 outfits)
+app.get("/api/outfits", (req, res) => {
+  db.all(
+    "SELECT id, eventId, selections, score, tier, createdAt FROM outfits ORDER BY id DESC LIMIT 20",
+    (err, rows) => {
+      if (err) {
+        console.error("Failed to load outfits history:", err);
+        return res.status(500).json({ error: "Failed to load outfits history" });
+      }
+      res.json(
+        rows.map((row) => ({
+          id: row.id,
+          eventId: row.eventId,
+          selections: JSON.parse(row.selections),
+          score: row.score,
+          tier: row.tier,
+          createdAt: row.createdAt,
+        }))
+      );
+    }
+  );
 });
 
 app.get("/health", (req, res) => {
@@ -288,6 +402,7 @@ app.get("/health", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`diva_down backend listening on http://localhost:${PORT}`);
+  console.log(`diva_down backend with SQLite listening on http://localhost:${PORT}`);
 });
+
 
