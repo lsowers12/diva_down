@@ -158,6 +158,12 @@ const el = {
   speechBubble: document.getElementById("speechBubble"),
   avatarSvg: document.getElementById("avatarSvg"),
   characterPortrait: document.querySelector(".character-portrait"),
+  resultScreen: document.getElementById("resultScreen"),
+  resultScore: document.getElementById("resultScore"),
+  resultTitle: document.getElementById("resultTitle"),
+  resultText: document.getElementById("resultText"),
+  resultCloseBtn: document.getElementById("resultCloseBtn"),
+  resultAvatarMount: document.getElementById("resultAvatarMount"),
 };
 
 function randomPick(list) {
@@ -269,11 +275,17 @@ function applyEventTheme(eventId) {
 }
 
 function resetRating() {
-  el.ratingScore.textContent = "– / 100";
-  el.ratingNarrative.textContent =
-    "She’s waiting. Build a look and lock it in to see if you understood the assignment.";
-  el.ratingBadge.textContent = "Waiting for a look…";
-  el.ratingBadge.className = "rating-badge rating-badge--idle";
+  if (el.ratingScore) {
+    el.ratingScore.textContent = "– / 100";
+  }
+  if (el.ratingNarrative) {
+    el.ratingNarrative.textContent =
+      "She’s waiting. Build a look and lock it in to see if you understood the assignment.";
+  }
+  if (el.ratingBadge) {
+    el.ratingBadge.textContent = "Waiting for a look…";
+    el.ratingBadge.className = "rating-badge rating-badge--idle";
+  }
 }
 
 function randomizeOutfit() {
@@ -416,16 +428,21 @@ function buildAnecdote(event, items, score, tier) {
 function renderRating() {
   const { score, tier, title, text } = computeRating();
 
-  el.ratingScore.textContent = `${score} / 100`;
-  el.ratingNarrative.textContent = text;
+  if (el.ratingScore) {
+    el.ratingScore.textContent = `${score} / 100`;
+  }
+  if (el.ratingNarrative) {
+    el.ratingNarrative.textContent = text;
+  }
+  if (el.ratingBadge) {
+    el.ratingBadge.className = "rating-badge";
+    if (tier === "slay") el.ratingBadge.classList.add("rating-badge--slay");
+    else if (tier === "flop") el.ratingBadge.classList.add("rating-badge--flop");
+    else if (tier === "mid") el.ratingBadge.classList.add("rating-badge--mid");
+    else el.ratingBadge.classList.add("rating-badge--idle");
 
-  el.ratingBadge.className = "rating-badge";
-  if (tier === "slay") el.ratingBadge.classList.add("rating-badge--slay");
-  else if (tier === "flop") el.ratingBadge.classList.add("rating-badge--flop");
-  else if (tier === "mid") el.ratingBadge.classList.add("rating-badge--mid");
-  else el.ratingBadge.classList.add("rating-badge--idle");
-
-  el.ratingBadge.textContent = title;
+    el.ratingBadge.textContent = title;
+  }
 
   if (state.currentEvent) {
     if (tier === "slay") {
@@ -438,6 +455,24 @@ function renderRating() {
       el.speechBubble.innerHTML =
         "<p>Cute! But I feel like we were one chaotic choice away from greatness.</p>";
     }
+  }
+
+  // Populate and show result overlay
+  if (el.resultScore && el.resultTitle && el.resultText && el.resultScreen) {
+    el.resultScore.textContent = `${score} / 100`;
+    el.resultTitle.textContent = title;
+    el.resultText.textContent = text;
+
+    // Clone current avatar into the overlay frame so you see the styled look
+    if (el.avatarSvg && el.resultAvatarMount) {
+      el.resultAvatarMount.innerHTML = "";
+      const clone = el.avatarSvg.cloneNode(true);
+      clone.removeAttribute("id");
+      el.resultAvatarMount.appendChild(clone);
+    }
+
+    el.resultScreen.classList.add("visible");
+    el.resultScreen.setAttribute("aria-hidden", "false");
   }
 }
 
@@ -480,6 +515,13 @@ function init() {
   el.submitOutfitBtn.addEventListener("click", () => {
     renderRating();
   });
+
+  if (el.resultCloseBtn && el.resultScreen) {
+    el.resultCloseBtn.addEventListener("click", () => {
+      el.resultScreen.classList.remove("visible");
+      el.resultScreen.setAttribute("aria-hidden", "true");
+    });
+  }
 }
 
 if (document.readyState === "loading") {

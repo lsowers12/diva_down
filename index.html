@@ -1014,17 +1014,39 @@
           </button>
         </section>
 
-        <section class="panel rating-panel">
-          <h2>Vibe check</h2>
-          <div id="ratingScore" class="rating-score">– / 100</div>
-          <div id="ratingBadge" class="rating-badge rating-badge--idle">
-            Waiting for a look…
-          </div>
-          <div id="ratingNarrative" class="rating-narrative">
-            She’ll spill her honest thoughts here once you lock the look.
-          </div>
-        </section>
       </main>
+
+      <section id="resultScreen" class="result-screen" aria-hidden="true">
+        <div class="result-backdrop"></div>
+        <div class="result-content">
+          <div class="result-card">
+            <header class="result-header">
+              <span class="result-label">Vibe check</span>
+              <button
+                id="resultCloseBtn"
+                class="ghost-button result-close-btn"
+                type="button"
+              >
+                Back to closet
+              </button>
+            </header>
+
+            <div class="result-body">
+              <div class="result-avatar-wrap">
+                <div class="result-avatar-halo"></div>
+                <div id="resultAvatarMount" class="result-avatar-mount"></div>
+              </div>
+              <div class="result-copy">
+                <div id="resultScore" class="result-score">– / 100</div>
+                <div id="resultTitle" class="result-title">Waiting for a look…</div>
+                <p id="resultText" class="result-text">
+                  Once you lock the look, she’ll step into her close‑up and give you the full rundown.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <!-- footer intentionally empty to keep focus on the game and avoid covering the action buttons -->
     </div>
