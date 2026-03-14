@@ -1,32 +1,32 @@
 const skinTones = {
   "skin_porcelain": { top: "#fbe0d0", bottom: "#f1b39a" },
+  "skin_honey": { top: "#f5d4a8", bottom: "#e0a864" },
   "skin_olive": { top: "#f1c9aa", bottom: "#d99a72" },
   "skin_bronze": { top: "#e5b28a", bottom: "#c27a4a" },
-  "skin_espresso": { top: "#c58c5c", bottom: "#8b4a28" },
-  "skin_honey": { top: "#f5d4a8", bottom: "#e0a864" },
   "skin_mocha": { top: "#c99a6d", bottom: "#9d6b3a" },
+  "skin_espresso": { top: "#c58c5c", bottom: "#8b4a28" },
 };
 
 const events = [
   {
     id: "rave",
-    name: "Neon Rave in a Warehouse",
+    name: "Brat Rave",
     description:
-      "Bass is violent, lasers everywhere, someone brought an inflatable unicorn. Think reflective, breathable, chaotic.",
+      "Charli XCX is on the aux. Bass is violent, lasers everywhere. Dress to serve cunt—reflective, breathable, chaotic.",
     idealTags: ["neon", "mesh", "platform", "glow", "mini", "y2k"],
   },
   {
     id: "ball",
     name: "Midnight Masquerade Ball",
     description:
-      "String quartet, stolen glances, dramatic staircase entrance. She needs elegance with at least one unhinged detail.",
+      "Anonymous glamour. Masks required, drama optional. Go full gown, corset, sparkle—and at least one detail that makes people whisper.",
     idealTags: ["gown", "dramatic", "sparkle", "corset", "heels", "opera"],
   },
   {
     id: "y2k",
-    name: "Y2K Dive Bar Night",
+    name: "Night out with Paris Hilton",
     description:
-      "Low-rise chaos, flip phones, lip gloss. The vibe is 'I might be in a music video, I might be at a bowling alley.'",
+      "That's hot. Y2K vibes only—glossy, sparkly, early 2000s. Low-rise, baby tees, and enough glitter to make it obvious you understood the assignment.",
     idealTags: ["low-rise", "denim", "baby-tee", "platform", "glossy"],
   },
   {
@@ -45,9 +45,9 @@ const events = [
   },
   {
     id: "date",
-    name: "Chaotic Third Date",
+    name: "Mystery Grindr Date",
     description:
-      "Cocktails that are mostly smoke, maybe karaoke after. Cute but calculated—effortless that took three hours.",
+      "He might be chopped. You never know. Dress cute either way—effortless that took three hours.",
     idealTags: ["slip", "heels", "red", "sheer", "gold"],
   },
 ];
@@ -58,11 +58,11 @@ const closetConfig = [
     label: "Skin tone",
     items: [
       { id: "skin_porcelain", label: "Porcelain glow", tags: ["skin", "soft"] },
+      { id: "skin_honey", label: "Honey warmth", tags: ["skin", "soft", "date"] },
       { id: "skin_olive", label: "Olive neutral", tags: ["skin", "gallery"] },
       { id: "skin_bronze", label: "Bronzed babe", tags: ["skin", "beach", "glow"] },
-      { id: "skin_espresso", label: "Espresso slay", tags: ["skin"] },
-      { id: "skin_honey", label: "Honey warmth", tags: ["skin", "soft", "date"] },
       { id: "skin_mocha", label: "Mocha latte", tags: ["skin", "date"] },
+      { id: "skin_espresso", label: "Espresso slay", tags: ["skin"] },
     ],
   },
   {
