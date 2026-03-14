@@ -157,6 +157,7 @@ const el = {
   ratingNarrative: document.getElementById("ratingNarrative"),
   speechBubble: document.getElementById("speechBubble"),
   avatarSvg: document.getElementById("avatarSvg"),
+  avatarBackSvg: document.getElementById("avatarBackSvg"),
   characterPortrait: document.querySelector(".character-portrait"),
   resultScreen: document.getElementById("resultScreen"),
   resultScore: document.getElementById("resultScore"),
@@ -164,6 +165,7 @@ const el = {
   resultText: document.getElementById("resultText"),
   resultCloseBtn: document.getElementById("resultCloseBtn"),
   resultAvatarMount: document.getElementById("resultAvatarMount"),
+  resultQueenWrap: document.getElementById("resultQueenWrap"),
 };
 
 function randomPick(list) {
@@ -319,8 +321,8 @@ function computeRating() {
     return {
       score: 0,
       tier: "idle",
-      title: "Nowhere to be",
-      text: "Give the girl somewhere to go first. Hit “New event” to unlock tonight’s mission.",
+      title: "Pick Something. I'm Waiting.",
+      text: "Honey. HONEY. I cannot read an empty calendar. Pick a goddamn event so I have something to work with. The audacity of showing up with NOTHING.",
     };
   }
 
@@ -333,8 +335,8 @@ function computeRating() {
     return {
       score: 5,
       tier: "flop",
-      title: "Closet paralysis",
-      text: "She’s standing in a towel staring at 400 outfits going “I have nothing to wear.” Pick literally anything.",
+      title: "Nothing On. NOTHING.",
+      text: "A whole closet. A WHOLE CLOSET. And you come to me with NOTHING ON? Put something on that body before I have a stroke. I cannot read a mannequin, sweetie.",
     };
   }
 
@@ -391,9 +393,9 @@ function buildAnecdote(event, items, score, tier) {
 
   if (tier === "slay") {
     const lines = [
-      `“Okay but this is actually insane. For ${event.name.toLowerCase()}, ${shortLabel} is giving main character, unbothered, unreturnable.”`,
-      `“Everyone at ${event.name.toLowerCase()} is going to think you had a stylist. Joke’s on them, you just have taste and an overstuffed closet.”`,
-      `“I’m obsessed? Like if I see this look on my feed later I’m reposting it with ‘you’re kidding me’ in all caps.”`,
+      `“Okay. OKAY. For ${event.name.toLowerCase()} you actually did that. I'm mad about it. ${shortLabel}? Don't get cocky, bitch.”`,
+      `“Alright, you ate. I'm not happy about it. Everyone at ${event.name.toLowerCase()} will think you tried. For once they'd be right. Don't let it go to your head.”`,
+      `"I was READY to read you to filth and you had to go and do THIS? ${shortLabel} for ${event.name.toLowerCase()}? Unfortunately you ate. I'm upset."`,
     ];
     return {
       title: "Certified Serve",
@@ -403,24 +405,29 @@ function buildAnecdote(event, items, score, tier) {
 
   if (tier === "flop") {
     const lines = [
-      `“Love you down but for ${event.name.toLowerCase()} this feels like you got dressed in three different decades at once.”`,
-      `“If someone asks ‘what’s the theme?’ just say ‘confused’. The ${shortLabel} combo is fighting itself.”`,
-      `“The outfit isn’t bad, it’s just not at the same event as everyone else. She’s at ${event.name.toLowerCase()}, her clothes are somewhere else.”`,
+      `“For ${event.name.toLowerCase()}? HONEY. This is a HATE CRIME. ${shortLabel}? Looks like you closed your eyes and grabbed three random hangers. The audacity.”`,
+            `"Who HURT you? Who did this to you? The ${shortLabel} combo is giving 'I gave up' and 'please ask me to leave.' I'm gonna need you to do better."`,
+      `“She's at ${event.name.toLowerCase()} but her OUTFIT is in a different ZIP CODE. A different DECADE. Refusing to make eye contact. Baby, no.”`,
+      `"This is NOT it. This is never it. ${shortLabel} for this? Giving 'I read the invite wrong' or 'I'm the main character in a BAD way.' Oh, you thought?"`,
+      `"The theme was RIGHT THERE. You had ONE JOB. ONE. This ${shortLabel} situation? A public service announcement. Do better, sweetie."`,
+      `"No. NO. For ${event.name.toLowerCase()}? Girl. The nerve. ${shortLabel}? I'm gonna need you to go back to the closet and think about your choices."`,
     ];
     return {
-      title: "Soft Flop Era",
+      title: "Absolutely Not. No.",
       text: lines[Math.floor(Math.random() * lines.length)],
     };
   }
 
   const lines = [
-    `“She’s definitely dressed. For ${event.name.toLowerCase()} it’s giving safe choice with delusional confidence.”`,
-    `“This is cute but if someone next to you commits harder to the theme… they’re getting the compliments.”`,
-    `“She will absolutely go and have fun in this. Will strangers ask for outfit pics? Unclear.”`,
+    `“She's dressed. I'll give you that. For ${event.name.toLowerCase()} it's giving 'I showed up' and 'I did not excel.' MID. Next.”`,
+    `“This is the outfit of someone who will stand by the wall all night. Cute? Debatable. MEMORABLE? No. Goodbye.”`,
+    `“You'll get in. Will you get compliments? No. ${shortLabel} is fine in the most forgettable way possible. I said what I said.”`,
+    `"It's giving 'I had 20 minutes and it shows.' For ${event.name.toLowerCase()} that's not a flex. Do better. Or don't. I don't care. Next."`,
+    `"Mid. MID. You'll blend in. You won't stand out. ${shortLabel} is giving 'I showed up' and that's all. Bye."`,
   ];
 
   return {
-    title: "Almost Ate",
+    title: "You Tried. It Shows.",
     text: lines[Math.floor(Math.random() * lines.length)],
   };
 }
@@ -471,6 +478,10 @@ function renderRating() {
       el.resultAvatarMount.appendChild(clone);
     }
 
+    if (el.resultQueenWrap) {
+      el.resultQueenWrap.dataset.tier = tier;
+    }
+
     el.resultScreen.classList.add("visible");
     el.resultScreen.setAttribute("aria-hidden", "false");
   }
@@ -498,6 +509,22 @@ function renderCharacterLook() {
         node.classList.add("visible");
       }
     });
+
+    if (el.avatarBackSvg) {
+      const backPieces = el.avatarBackSvg.querySelectorAll(".avatar-piece");
+      backPieces.forEach((piece) => piece.classList.remove("visible"));
+      const backCategories = ["hair", "dress", "top", "bottom", "shoes"];
+      backCategories.forEach((cat) => {
+        const itemId = state.selections[cat];
+        if (itemId) {
+          const backId = `${itemId}_back_art`;
+          const backNode = el.avatarBackSvg.querySelector(`#${backId}`);
+          if (backNode) {
+            backNode.classList.add("visible");
+          }
+        }
+      });
+    }
   } catch (e) {
     // Fail silently so the app still works even if some older browsers
     // choke on selector features.

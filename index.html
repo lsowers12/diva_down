@@ -29,8 +29,10 @@
         <section class="panel story-panel">
           <div class="character-card">
             <div class="character-portrait">
-              <svg
-                id="avatarSvg"
+              <div class="avatar-view avatar-front">
+                <span class="avatar-label">Front</span>
+                <svg
+                  id="avatarSvg"
                 class="avatar-svg"
                 viewBox="0 0 180 260"
                 xmlns="http://www.w3.org/2000/svg"
@@ -983,11 +985,64 @@
                   </g>
                 </g>
               </svg>
+              </div>
+              <div class="avatar-view avatar-back">
+                <span class="avatar-label">Back</span>
+                <svg id="avatarBackSvg" class="avatar-svg" viewBox="0 0 180 260" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="0" y="0" width="180" height="260" fill="url(#haloGrad)" rx="28"/>
+                  <g id="back-base">
+                    <rect x="36" y="104" width="14" height="82" rx="9" fill="url(#skinGrad)"/>
+                    <rect x="130" y="104" width="14" height="82" rx="9" fill="url(#skinGrad)"/>
+                    <circle cx="90" cy="60" r="26" fill="url(#skinGrad)" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+                    <rect x="82" y="76" width="16" height="18" rx="7" fill="url(#skinGrad)"/>
+                    <path d="M54 96 Q90 82 126 96 Q122 132 114 152 Q106 170 90 174 Q74 170 66 152 Q58 132 54 96Z" fill="url(#skinGrad)"/>
+                    <path d="M62 168 Q90 182 118 168 L122 194 Q108 206 90 208 Q72 206 58 194Z" fill="url(#skinGrad)"/>
+                    <rect x="72" y="194" width="14" height="60" rx="7" fill="url(#skinGrad)"/>
+                    <rect x="94" y="194" width="14" height="60" rx="7" fill="url(#skinGrad)"/>
+                  </g>
+                  <g id="back-hair-layer">
+                    <g id="hair_bubble-pigtails_back_art" class="avatar-piece"><path d="M64 30 Q90 8 116 30 Q114 50 90 62 Q66 50 64 30Z" fill="#3a1b4a"/></g>
+                    <g id="hair_sleek-bun_back_art" class="avatar-piece"><ellipse cx="90" cy="30" rx="28" ry="16" fill="#1b1025"/></g>
+                    <g id="hair_beach-waves_back_art" class="avatar-piece"><path d="M62 25 Q90 6 118 25 L116 60 Q90 72 64 60Z" fill="#d38f5b"/></g>
+                    <g id="hair_space-buns_back_art" class="avatar-piece"><ellipse cx="90" cy="28" rx="26" ry="14" fill="#2b103f"/></g>
+                    <g id="hair_claw-clip_back_art" class="avatar-piece"><path d="M70 25 Q90 10 110 25 L108 55 Q90 68 72 55Z" fill="#211626"/></g>
+                  </g>
+                  <g id="back-dress-layer">
+                    <g id="dress_slip-dress_back_art" class="avatar-piece"><path d="M58 96 Q90 88 122 96 L118 194 Q90 208 62 194Z" fill="#e8d5e8" stroke="#c4a8c4" stroke-width="1"/></g>
+                    <g id="dress_ballgown_back_art" class="avatar-piece"><path d="M50 96 Q90 80 130 96 Q128 140 120 200 Q90 220 60 200 Q52 140 50 96Z" fill="#3d1a4a" stroke="#5c2a6a" stroke-width="1"/></g>
+                    <g id="dress_metallic-mini_back_art" class="avatar-piece"><path d="M60 96 Q90 90 120 96 L116 150 Q90 160 64 150Z" fill="#8a9bb5" stroke="#6a7b95" stroke-width="1"/></g>
+                    <g id="dress_cutout-knit_back_art" class="avatar-piece"><path d="M56 96 Q90 86 124 96 L120 194 Q90 208 60 194Z" fill="#d4c4b8" stroke="#b8a898" stroke-width="1"/></g>
+                    <g id="dress_archi-column_back_art" class="avatar-piece"><path d="M62 96 L118 96 L114 194 Q90 208 66 194Z" fill="#2a2a2a" stroke="#3a3a3a" stroke-width="1"/></g>
+                  </g>
+                  <g id="back-top-layer">
+                    <g id="top_mesh-long-sleeve_back_art" class="avatar-piece"><path d="M52 96 Q90 84 128 96 L124 138 Q90 152 56 138Z" fill="rgba(134,88,214,0.5)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/></g>
+                    <g id="top_corset_back_art" class="avatar-piece"><path d="M56 96 L124 96 L118 142 Q90 152 62 142Z" fill="#642f76"/></g>
+                    <g id="top_baby-tee_back_art" class="avatar-piece"><path d="M60 96 Q90 88 120 96 L116 138 Q90 148 64 138Z" fill="#ffb9dd"/></g>
+                    <g id="top_satin-cami_back_art" class="avatar-piece"><path d="M64 96 Q90 88 116 96 L112 138 Q90 148 68 138Z" fill="#f7d5c8"/></g>
+                    <g id="top_oversized-shirt_back_art" class="avatar-piece"><path d="M48 96 Q90 86 132 96 L128 148 Q90 162 52 148Z" fill="#f1f6f0"/></g>
+                  </g>
+                  <g id="back-bottom-layer">
+                    <g id="bottom_cargo-mini_back_art" class="avatar-piece"><path d="M62 140 Q90 132 118 140 L114 180 Q90 188 66 180Z" fill="#717bff"/></g>
+                    <g id="bottom_lowrise-jeans_back_art" class="avatar-piece"><path d="M64 140 Q90 132 116 140 L112 216 L68 216 L64 208Z" fill="#4d77a5"/></g>
+                    <g id="bottom_tulle-skirt_back_art" class="avatar-piece"><path d="M58 140 Q90 120 122 140 Q118 200 90 212 Q62 200 58 140Z" fill="#fce6ff"/></g>
+                    <g id="bottom_tailored-trousers_back_art" class="avatar-piece"><path d="M66 140 L114 140 L110 216 L70 216Z" fill="#1a1a1a"/></g>
+                    <g id="bottom_knitted-shorts_back_art" class="avatar-piece"><path d="M64 140 Q90 136 116 140 L112 175 Q90 182 68 175Z" fill="#c7d3c7"/></g>
+                  </g>
+                  <g id="back-shoes-layer">
+                    <g id="shoes_holographic-platforms_back_art" class="avatar-piece"><path d="M70 250 L80 254 L100 254 L110 250 M94 250 L104 254 L124 254 L134 250" stroke="#b8c4ff" stroke-width="4" fill="none"/></g>
+                    <g id="shoes_satin-heels_back_art" class="avatar-piece"><path d="M72 248 L88 256 L102 256 L118 248 M92 248 L106 256 L120 256 L136 248" stroke="#e8d5f0" stroke-width="3" fill="none"/></g>
+                    <g id="shoes_pointed-flats_back_art" class="avatar-piece"><path d="M72 252 L90 256 L110 256 L128 252 M92 252 L108 256 L128 256 L146 252" stroke="#2a2a2a" stroke-width="2" fill="none"/></g>
+                    <g id="shoes_beaded-sandals_back_art" class="avatar-piece"><path d="M70 252 L88 256 L102 256 L120 252 M92 252 L108 256 L122 256 L140 252" stroke="#d4b868" stroke-width="2" fill="none"/></g>
+                    <g id="shoes_furry-mules_back_art" class="avatar-piece"><path d="M68 250 Q88 256 108 250 M90 250 Q108 256 128 250" stroke="#c9a882" stroke-width="6" fill="none" stroke-linecap="round"/></g>
+                  </g>
+                </svg>
+              </div>
             </div>
             <div class="speech-bubble" id="speechBubble">
               <p>
-                Okay so… all my cards just declined. Tragic. Luckily my closet
-                is still insane. Help me pull a look before I spiral.
+                Okay so… all my cards just declined. No new outfit for me!
+                Tragic. Luckily my closet is still insane. Help me pull a
+                look—Eye-eesha is going to be there and she does NOT hold back!
               </p>
             </div>
           </div>
@@ -1035,6 +1090,86 @@
               <div class="result-avatar-wrap">
                 <div class="result-avatar-halo"></div>
                 <div id="resultAvatarMount" class="result-avatar-mount"></div>
+                <div id="resultQueenWrap" class="result-queen-wrap" data-tier="idle">
+                  <svg class="result-queen-svg" viewBox="0 0 120 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <defs>
+                      <linearGradient id="queenHairGrad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#ff6ec7" />
+                        <stop offset="100%" stop-color="#a01a6b" />
+                      </linearGradient>
+                      <linearGradient id="queenLipGrad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#ff3d8a" />
+                        <stop offset="100%" stop-color="#c41e5a" />
+                      </linearGradient>
+                      <linearGradient id="queenSkinGrad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#f5c6a3" />
+                        <stop offset="100%" stop-color="#f5c6a3" />
+                      </linearGradient>
+                    </defs>
+                    <!-- POSE: slay - arms up, triumphant -->
+                    <g class="result-queen-pose result-queen-pose--slay" data-pose="slay">
+                      <path d="M28 5 Q60 -8 92 5 Q100 50 88 68 L70 62 L66 75 L60 70 L54 75 L50 62 L32 68 Q20 50 28 5Z" fill="url(#queenHairGrad)" stroke="#2d0a1f" stroke-width="0.8"/>
+                      <path d="M42 92 L24 52 L32 48 L48 88 L72 88 L88 48 L96 52 L78 92Z" fill="url(#queenSkinGrad)"/>
+                      <path d="M44 88 Q32 95 34 108 Q38 120 28 135 Q42 142 60 142 Q78 142 92 135 Q82 120 86 108 Q88 95 76 88 Q60 78 44 88Z" fill="#ff7bb8" stroke="#c41e5a" stroke-width="0.8"/>
+                      <rect x="46" y="140" width="12" height="40" rx="5" fill="url(#queenSkinGrad)"/>
+                      <rect x="62" y="140" width="12" height="40" rx="5" fill="url(#queenSkinGrad)"/>
+                      <rect x="54" y="60" width="12" height="30" rx="6" fill="url(#queenSkinGrad)"/>
+                      <circle cx="60" cy="42" r="18" fill="url(#queenSkinGrad)" stroke="rgba(255,255,255,0.5)" stroke-width="0.8"/>
+                      <path d="M54 34 Q60 30 66 34" stroke="#2b1630" stroke-width="2" stroke-linecap="round" fill="none"/>
+                      <ellipse cx="60" cy="40" rx="5" ry="3.5" fill="#fdfbff"/>
+                      <circle cx="60" cy="40" r="2.2" fill="#2a1a2c"/>
+                      <path d="M52 38 L50 28 M55 37 L54 26 M60 36 L60 25 M65 37 L66 26 M68 38 L70 28" stroke="#1a0a12" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+                      <path d="M54 48 Q60 52 66 48" fill="none" stroke="url(#queenLipGrad)" stroke-width="1.2" stroke-linecap="round"/>
+                    </g>
+                    <!-- POSE: mid - arms crossed -->
+                    <g class="result-queen-pose result-queen-pose--mid" data-pose="mid">
+                      <path d="M28 4 Q60 -10 92 4 Q98 48 86 64 L68 58 L64 72 L60 66 L56 72 L52 58 L34 64 Q22 48 28 4Z" fill="url(#queenHairGrad)" stroke="#2d0a1f" stroke-width="0.8"/>
+                      <path d="M38 90 L28 112 L36 120 L52 92 M82 90 L92 112 L84 120 L68 92" fill="url(#queenSkinGrad)"/>
+                      <rect x="44" y="124" width="32" height="8" rx="3" fill="url(#queenSkinGrad)"/>
+                      <path d="M44 86 Q30 94 32 108 Q36 120 26 136 Q40 140 60 140 Q80 140 94 136 Q84 120 88 108 Q90 94 76 86 Q60 76 44 86Z" fill="#c41e5a" stroke="#8b1538" stroke-width="0.8"/>
+                      <rect x="46" y="138" width="12" height="42" rx="5" fill="url(#queenSkinGrad)"/>
+                      <rect x="62" y="138" width="12" height="42" rx="5" fill="url(#queenSkinGrad)"/>
+                      <rect x="54" y="58" width="12" height="30" rx="6" fill="url(#queenSkinGrad)"/>
+                      <circle cx="60" cy="41" r="18" fill="url(#queenSkinGrad)" stroke="rgba(255,255,255,0.5)" stroke-width="0.8"/>
+                      <path d="M54 33 Q60 29 66 33" stroke="#2b1630" stroke-width="2" stroke-linecap="round" fill="none"/>
+                      <ellipse cx="60" cy="39" rx="5" ry="3.5" fill="#fdfbff"/>
+                      <circle cx="60" cy="39" r="2.2" fill="#2a1a2c"/>
+                      <path d="M52 37 L50 27 M55 36 L54 25 M60 35 L60 24 M65 36 L66 25 M68 37 L70 27" stroke="#1a0a12" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+                      <path d="M54 47 Q60 50 66 47" fill="none" stroke="url(#queenLipGrad)" stroke-width="1.2" stroke-linecap="round"/>
+                    </g>
+                    <!-- POSE: flop - hand on hip, pointing -->
+                    <g class="result-queen-pose result-queen-pose--flop" data-pose="flop">
+                      <path d="M28 6 Q60 -8 92 6 Q96 50 84 66 L66 60 L62 74 L60 68 L58 74 L54 60 L36 66 Q24 50 28 6Z" fill="url(#queenHairGrad)" stroke="#2d0a1f" stroke-width="0.8"/>
+                      <path d="M36 92 L24 130 L32 132 L42 92Z M84 92 L96 130 L88 132 L78 92Z" fill="url(#queenSkinGrad)"/>
+                      <path d="M46 88 Q32 96 34 110 Q38 122 28 138 Q42 142 60 142 Q78 142 92 138 Q82 122 86 110 Q88 96 74 88 Q60 78 46 88Z" fill="#ff3d8a" stroke="#c41e5a" stroke-width="0.8"/>
+                      <rect x="46" y="140" width="12" height="40" rx="5" fill="url(#queenSkinGrad)"/>
+                      <rect x="62" y="140" width="12" height="40" rx="5" fill="url(#queenSkinGrad)"/>
+                      <rect x="54" y="60" width="12" height="30" rx="6" fill="url(#queenSkinGrad)"/>
+                      <circle cx="60" cy="43" r="18" fill="url(#queenSkinGrad)" stroke="rgba(255,255,255,0.5)" stroke-width="0.8"/>
+                      <path d="M54 37 Q60 33 66 37" stroke="#2b1630" stroke-width="2" stroke-linecap="round" fill="none"/>
+                      <ellipse cx="60" cy="41" rx="5" ry="3.5" fill="#fdfbff"/>
+                      <circle cx="60" cy="41" r="2.2" fill="#2a1a2c"/>
+                      <path d="M52 39 L50 29 M55 38 L54 27 M60 37 L60 26 M65 38 L66 27 M68 39 L70 29" stroke="#1a0a12" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+                      <path d="M55 49 Q60 51 65 49" fill="none" stroke="url(#queenLipGrad)" stroke-width="1.2" stroke-linecap="round"/>
+                    </g>
+                    <!-- POSE: idle - neutral waiting -->
+                    <g class="result-queen-pose result-queen-pose--idle" data-pose="idle">
+                      <path d="M28 4 Q60 -10 92 4 Q98 48 86 64 L68 58 L64 72 L60 66 L56 72 L52 58 L34 64 Q22 48 28 4Z" fill="url(#queenHairGrad)" stroke="#2d0a1f" stroke-width="0.8"/>
+                      <path d="M34 90 L22 135 L30 136 L40 92Z M86 90 L98 135 L90 136 L80 92Z" fill="url(#queenSkinGrad)"/>
+                      <path d="M44 86 Q30 94 32 108 Q36 120 26 136 Q40 140 60 140 Q80 140 94 136 Q84 120 88 108 Q90 94 76 86 Q60 76 44 86Z" fill="#ff9ad7" stroke="#c41e5a" stroke-width="0.8"/>
+                      <rect x="46" y="138" width="12" height="42" rx="5" fill="url(#queenSkinGrad)"/>
+                      <rect x="62" y="138" width="12" height="42" rx="5" fill="url(#queenSkinGrad)"/>
+                      <rect x="54" y="58" width="12" height="30" rx="6" fill="url(#queenSkinGrad)"/>
+                      <circle cx="60" cy="41" r="18" fill="url(#queenSkinGrad)" stroke="rgba(255,255,255,0.5)" stroke-width="0.8"/>
+                      <path d="M54 33 Q60 29 66 33" stroke="#2b1630" stroke-width="2" stroke-linecap="round" fill="none"/>
+                      <ellipse cx="60" cy="39" rx="5" ry="3.5" fill="#fdfbff"/>
+                      <circle cx="60" cy="39" r="2.2" fill="#2a1a2c"/>
+                      <path d="M52 37 L50 27 M55 36 L54 25 M60 35 L60 24 M65 36 L66 25 M68 37 L70 27" stroke="#1a0a12" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+                      <path d="M54 47 Q60 50 66 47" fill="none" stroke="url(#queenLipGrad)" stroke-width="1.2" stroke-linecap="round"/>
+                    </g>
+                  </svg>
+                  <span class="result-queen-name">Eye-eesha</span>
+                </div>
               </div>
               <div class="result-copy">
                 <div id="resultScore" class="result-score">– / 100</div>
