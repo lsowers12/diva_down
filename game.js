@@ -3,6 +3,8 @@ const skinTones = {
   "skin_olive": { top: "#f1c9aa", bottom: "#d99a72" },
   "skin_bronze": { top: "#e5b28a", bottom: "#c27a4a" },
   "skin_espresso": { top: "#c58c5c", bottom: "#8b4a28" },
+  "skin_honey": { top: "#f5d4a8", bottom: "#e0a864" },
+  "skin_mocha": { top: "#c99a6d", bottom: "#9d6b3a" },
 };
 
 const events = [
@@ -59,6 +61,8 @@ const closetConfig = [
       { id: "skin_olive", label: "Olive neutral", tags: ["skin", "gallery"] },
       { id: "skin_bronze", label: "Bronzed babe", tags: ["skin", "beach", "glow"] },
       { id: "skin_espresso", label: "Espresso slay", tags: ["skin"] },
+      { id: "skin_honey", label: "Honey warmth", tags: ["skin", "soft", "date"] },
+      { id: "skin_mocha", label: "Mocha latte", tags: ["skin", "date"] },
     ],
   },
   {
@@ -70,6 +74,7 @@ const closetConfig = [
       { id: "hair_beach-waves", label: "Salt-kissed waves", tags: ["beach", "flowy"] },
       { id: "hair_space-buns", label: "Glitter space buns", tags: ["neon", "rave", "glow"] },
       { id: "hair_claw-clip", label: "Claw clip updo", tags: ["gallery", "minimal"] },
+      { id: "hair_curtain-bangs", label: "Curtain bangs", tags: ["flowy", "date", "soft"] },
     ],
   },
   {
@@ -81,6 +86,7 @@ const closetConfig = [
       { id: "makeup_sunkissed", label: "Sunkissed bronze", tags: ["beach", "glow"] },
       { id: "makeup_clean-girl", label: "Clean girl minimal", tags: ["gallery", "minimal"] },
       { id: "makeup_siren", label: "Siren smoky eye", tags: ["dramatic", "date", "ball"] },
+      { id: "makeup_bold-red", label: "Bold red lip", tags: ["dramatic", "ball", "date"] },
     ],
   },
   {
@@ -92,6 +98,7 @@ const closetConfig = [
       { id: "top_baby-tee", label: "Baby tee with rhinestones", tags: ["baby-tee", "y2k"] },
       { id: "top_satin-cami", label: "Bias-cut satin cami", tags: ["slip", "date"] },
       { id: "top_oversized-shirt", label: "Oversized linen shirt", tags: ["linen", "oversized", "beach"] },
+      { id: "top_cropped-hoodie", label: "Cropped zip hoodie", tags: ["y2k", "casual", "layered"] },
     ],
   },
   {
@@ -103,6 +110,7 @@ const closetConfig = [
       { id: "bottom_tulle-skirt", label: "Layered tulle skirt", tags: ["gown", "dramatic", "ball"] },
       { id: "bottom_tailored-trousers", label: "Tailored black trousers", tags: ["structured", "tailored", "gallery"] },
       { id: "bottom_knitted-shorts", label: "Soft knit shorts", tags: ["knit", "beach"] },
+      { id: "bottom_wide-leg", label: "Wide-leg cargo", tags: ["oversized", "y2k", "casual"] },
     ],
   },
   {
@@ -114,6 +122,7 @@ const closetConfig = [
       { id: "dress_metallic-mini", label: "Metallic party mini", tags: ["neon", "mini", "glow", "rave"] },
       { id: "dress_cutout-knit", label: "Cutout knit maxi", tags: ["beach", "flowy", "knit"] },
       { id: "dress_archi-column", label: "Architect column dress", tags: ["structured", "monochrome", "gallery"] },
+      { id: "dress_blazer", label: "Suit blazer dress", tags: ["structured", "tailored", "gallery"] },
     ],
   },
   {
@@ -125,6 +134,7 @@ const closetConfig = [
       { id: "shoes_pointed-flats", label: "Pointed ballet flats", tags: ["minimal", "gallery"] },
       { id: "shoes_beaded-sandals", label: "Beaded flat sandals", tags: ["sandals", "beach"] },
       { id: "shoes_furry-mules", label: "Furry mules", tags: ["y2k", "playful"] },
+      { id: "shoes_chunky-boots", label: "Chunky platform boots", tags: ["platform", "y2k", "rave"] },
     ],
   },
   {

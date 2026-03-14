@@ -508,6 +508,15 @@ body {
   background: linear-gradient(160deg, #211626, #463153);
 }
 
+.closet-visual-hair_curtain-bangs {
+  background: radial-gradient(circle at top, #3a2845, #1a1020);
+}
+.closet-visual-hair_curtain-bangs::before {
+  inset: 22px 20px 14px;
+  border-radius: 50% 50% 40% 40%;
+  background: linear-gradient(180deg, #2a1835, #4a3858);
+}
+
 /* TOPS */
 .closet-visual-top_mesh-long-sleeve {
   background: radial-gradient(circle at top, #f4e6ff, #442067);
@@ -551,6 +560,15 @@ body {
 .closet-visual-top_oversized-shirt::before {
   border-radius: 18px 18px 22px 22px;
   background: linear-gradient(180deg, #f1f6f0, #c7d3c7);
+}
+
+.closet-visual-top_cropped-hoodie {
+  background: radial-gradient(circle at top, #6a6a8a, #3a3a4a);
+}
+.closet-visual-top_cropped-hoodie::before {
+  inset: 16px 14px 20px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #4a4a6a, #5a5a7a);
 }
 
 /* BOTTOMS */
@@ -599,6 +617,15 @@ body {
   background: linear-gradient(180deg, #f1c9aa, #f7dcc5);
 }
 
+.closet-visual-bottom_wide-leg {
+  background: radial-gradient(circle at top, #3a3a3a, #1a1a1a);
+}
+.closet-visual-bottom_wide-leg::before {
+  inset: 12px 10px 16px;
+  border-radius: 6px;
+  background: linear-gradient(180deg, #2a2a2a, #4a4a4a);
+}
+
 /* DRESSES */
 .closet-visual-dress_slip-dress {
   background: radial-gradient(circle at top, #ffe4f1, #c56885);
@@ -645,6 +672,15 @@ body {
   background: linear-gradient(180deg, #f2f2f5, #d9dde7);
 }
 
+.closet-visual-dress_blazer {
+  background: radial-gradient(circle at top, #2a2a4a, #0a0a1a);
+}
+.closet-visual-dress_blazer::before {
+  inset: 14px 12px 18px;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #1a1a2e, #3a3a5a);
+}
+
 /* SHOES */
 .closet-visual-shoes_holographic-platforms {
   background: radial-gradient(circle at top, #f8f2ff, #7a6bd6);
@@ -689,6 +725,15 @@ body {
   inset: 28px 12px 12px;
   border-radius: 20px;
   background: radial-gradient(circle at top, #ffeefd, #fdd9ff);
+}
+
+.closet-visual-shoes_chunky-boots {
+  background: radial-gradient(circle at top, #3a3a3a, #0a0a0a);
+}
+.closet-visual-shoes_chunky-boots::before {
+  inset: 20px 14px 12px;
+  border-radius: 6px;
+  background: linear-gradient(180deg, #1a1a1a, #2a2a2a);
 }
 
 /* ACCESSORIES */
@@ -783,6 +828,24 @@ body {
   background: linear-gradient(180deg, #c58c5c, #8b4a28);
 }
 
+.closet-visual-skin_honey {
+  background: radial-gradient(circle at top, #ffe4b8, #c9883f);
+}
+.closet-visual-skin_honey::before {
+  inset: 18px 18px 12px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #f5d4a8, #e0a864);
+}
+
+.closet-visual-skin_mocha {
+  background: radial-gradient(circle at top, #e0b88d, #6d4520);
+}
+.closet-visual-skin_mocha::before {
+  inset: 18px 18px 12px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #c99a6d, #9d6b3a);
+}
+
 /* MAKEUP */
 .closet-visual-makeup_soft-glam {
   background: radial-gradient(circle at top, #ffe3ef, #e6a0b2);
@@ -831,6 +894,15 @@ body {
   inset: 24px 18px 16px;
   border-radius: 18px;
   background: linear-gradient(160deg, #4b2338, #99324f);
+}
+
+.closet-visual-makeup_bold-red {
+  background: radial-gradient(circle at top, #ffd6e0, #b71c34);
+}
+.closet-visual-makeup_bold-red::before {
+  inset: 26px 22px 18px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #c62838, #8b0000);
 }
 
 .rating-panel {
