@@ -66,31 +66,61 @@
                 <!-- HAIR STYLES (drawn behind face) -->
                 <g id="hair-layer">
                   <g id="hair_bubble-pigtails_art" class="avatar-piece">
+                    <!-- scalp cap -->
                     <path
-                      d="M60 42 Q90 18 120 42 Q118 24 108 15 Q96 8 84 10 Q70 12 64 22 Q60 30 60 42Z"
+                      d="M64 46 Q90 20 116 46 Q112 30 106 22 Q98 14 90 14 Q82 14 74 22 Q68 30 64 46Z"
                       fill="#3a1b4a"
                     />
-                    <circle cx="60" cy="54" r="10" fill="#5c2a7a" />
-                    <circle cx="120" cy="54" r="10" fill="#5c2a7a" />
-                    <circle cx="60" cy="54" r="4" fill="#ffbdf5" />
-                    <circle cx="120" cy="54" r="4" fill="#ffbdf5" />
+
+                    <!-- left pigtail -->
+                    <path
+                      d="M68 52 Q58 56 56 68 Q54 80 64 88 Q74 82 74 70 Q74 58 68 52Z"
+                      fill="#5c2a7a"
+                    />
+                    <circle cx="58" cy="70" r="9" fill="#5c2a7a" />
+                    <circle cx="58" cy="70" r="3.8" fill="#ffbdf5" />
+
+                    <!-- right pigtail -->
+                    <path
+                      d="M112 52 Q122 56 124 68 Q126 80 116 88 Q106 82 106 70 Q106 58 112 52Z"
+                      fill="#5c2a7a"
+                    />
+                    <circle cx="122" cy="70" r="9" fill="#5c2a7a" />
+                    <circle cx="122" cy="70" r="3.8" fill="#ffbdf5" />
                   </g>
 
                   <g id="hair_sleek-bun_art" class="avatar-piece">
-                    <ellipse
-                      cx="90"
-                      cy="42"
-                      rx="30"
-                      ry="18"
+                    <!-- main updo volume, tightened so it doesn't stick out past the head -->
+                    <path
+                      d="M66 46 Q90 20 114 46 Q112 64 102 74 Q90 80 78 74 Q68 64 66 46Z"
                       fill="#1b1025"
                     />
-                    <circle cx="90" cy="30" r="11" fill="#1b1025" />
-                    <circle
-                      cx="90"
-                      cy="30"
-                      r="6"
+                    <!-- crown bun -->
+                    <path
+                      d="M76 24 Q90 8 104 24 Q98 34 90 38 Q82 34 76 24Z"
+                      fill="#1b1025"
+                    />
+                    <!-- subtle highlight across the top of the updo -->
+                    <path
+                      d="M78 46 Q90 38 102 46"
                       stroke="#4b3c72"
-                      stroke-width="1.8"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      fill="none"
+                    />
+                    <!-- curly bang pieces at the temples -->
+                    <path
+                      d="M76 50 Q74 54 76 58 Q78 62 76 66"
+                      stroke="#1b1025"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      fill="none"
+                    />
+                    <path
+                      d="M104 50 Q106 54 104 58 Q102 62 104 66"
+                      stroke="#1b1025"
+                      stroke-width="2"
+                      stroke-linecap="round"
                       fill="none"
                     />
                   </g>
@@ -346,6 +376,34 @@
                       fill="none"
                     />
                   </g>
+
+                  <!-- front hair overlays for styles that need bangs/curls -->
+                  <g id="front-hair-layer">
+                    <!-- curly bangs for sleek bun -->
+                    <g id="hair_sleek-bun_overlay" class="avatar-piece">
+                      <!-- wide hairline cap following the top of the head, curving down toward the temples -->
+                      <path
+                        d="M60 36 Q90 24 120 36 Q116 52 90 56 Q64 52 60 36Z"
+                        fill="#1b1025"
+                      />
+                      <!-- left bang: bigger, looser curl starting from that cap -->
+                      <path
+                        d="M78 36 Q66 46 66 60 Q66 74 72 88"
+                        stroke="#1b1025"
+                        stroke-width="3"
+                        stroke-linecap="round"
+                        fill="none"
+                      />
+                      <!-- right bang -->
+                      <path
+                        d="M102 36 Q114 46 114 60 Q114 74 108 88"
+                        stroke="#1b1025"
+                        stroke-width="3"
+                        stroke-linecap="round"
+                        fill="none"
+                      />
+                    </g>
+                  </g>
                 </g>
 
                 <!-- MAKEUP LOOKS -->
@@ -456,10 +514,11 @@
                       opacity="0.9"
                     />
                     <path
-                      d="M80 68 Q90 74 100 68"
-                      stroke="#99324f"
-                      stroke-width="2.2"
+                      d="M80 69 Q90 76 100 69"
+                      stroke="#8a555a"
+                      stroke-width="2"
                       stroke-linecap="round"
+                      fill="none"
                     />
                   </g>
 
@@ -1052,12 +1111,12 @@
                     <rect x="94" y="194" width="14" height="60" rx="7" fill="url(#skinGrad)"/>
                   </g>
                   <g id="back-hair-layer">
-                    <g id="hair_bubble-pigtails_back_art" class="avatar-piece"><path d="M64 30 Q90 8 116 30 Q114 50 90 62 Q66 50 64 30Z" fill="#3a1b4a"/></g>
-                    <g id="hair_sleek-bun_back_art" class="avatar-piece"><ellipse cx="90" cy="30" rx="28" ry="16" fill="#1b1025"/></g>
-                    <g id="hair_beach-waves_back_art" class="avatar-piece"><path d="M62 25 Q90 6 118 25 L116 60 Q90 72 64 60Z" fill="#d38f5b"/></g>
+                    <g id="hair_bubble-pigtails_back_art" class="avatar-piece"><path d="M64 28 Q90 6 116 28 Q116 52 104 66 Q90 72 76 66 Q64 52 64 28Z" fill="#3a1b4a"/><circle cx="58" cy="62" r="10" fill="#5c2a7a"/><circle cx="122" cy="62" r="10" fill="#5c2a7a"/></g>
+                    <g id="hair_sleek-bun_back_art" class="avatar-piece"><path d="M60 24 Q90 6 120 24 Q118 56 106 74 Q90 82 74 74 Q62 62 60 24Z" fill="#1b1025"/></g>
+                    <g id="hair_beach-waves_back_art" class="avatar-piece"><path d="M60 38 Q90 18 120 38 L118 86 Q116 120 108 146 Q100 168 90 172 Q80 168 72 146 Q64 120 62 86Z" fill="#d38f5b"/></g>
                     <g id="hair_space-buns_back_art" class="avatar-piece"><ellipse cx="90" cy="28" rx="26" ry="14" fill="#2b103f"/></g>
                     <g id="hair_claw-clip_back_art" class="avatar-piece"><path d="M70 25 Q90 10 110 25 L108 55 Q90 68 72 55Z" fill="#211626"/></g>
-                    <g id="hair_curtain-bangs_back_art" class="avatar-piece"><path d="M62 22 Q90 8 118 22 L114 55 Q90 68 66 55Z" fill="#2a1835"/></g>
+                    <g id="hair_curtain-bangs_back_art" class="avatar-piece"><path d="M60 38 Q90 22 120 38 L118 78 Q116 110 108 136 Q100 156 90 160 Q80 156 72 136 Q64 110 62 78Z" fill="#2a1835"/></g>
                   </g>
                   <g id="back-dress-layer">
                     <g id="dress_slip-dress_back_art" class="avatar-piece"><path d="M58 96 Q90 88 122 96 L118 194 Q90 208 62 194Z" fill="#e8d5e8" stroke="#c4a8c4" stroke-width="1"/></g>

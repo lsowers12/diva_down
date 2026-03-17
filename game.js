@@ -1,10 +1,10 @@
 const skinTones = {
-  "skin_porcelain": { top: "#fbe0d0", bottom: "#f1b39a" },
-  "skin_honey": { top: "#f5d4a8", bottom: "#e0a864" },
-  "skin_olive": { top: "#f1c9aa", bottom: "#d99a72" },
-  "skin_bronze": { top: "#e5b28a", bottom: "#c27a4a" },
-  "skin_mocha": { top: "#c99a6d", bottom: "#9d6b3a" },
   "skin_espresso": { top: "#c58c5c", bottom: "#8b4a28" },
+  "skin_mocha": { top: "#c99a6d", bottom: "#9d6b3a" },
+  "skin_honey": { top: "#f5d4a8", bottom: "#e0a864" },
+  "skin_bronze": { top: "#e5b28a", bottom: "#c27a4a" },
+  "skin_olive": { top: "#f1c9aa", bottom: "#d99a72" },
+  "skin_porcelain": { top: "#fbe0d0", bottom: "#f1b39a" },
 };
 
 const events = [
@@ -57,12 +57,12 @@ const closetConfig = [
     id: "skin",
     label: "Skin tone",
     items: [
-      { id: "skin_porcelain", label: "Porcelain glow", tags: ["skin", "soft"] },
-      { id: "skin_honey", label: "Honey warmth", tags: ["skin", "soft", "date"] },
-      { id: "skin_olive", label: "Olive neutral", tags: ["skin", "gallery"] },
-      { id: "skin_bronze", label: "Bronzed babe", tags: ["skin", "beach", "glow"] },
-      { id: "skin_mocha", label: "Mocha latte", tags: ["skin", "date"] },
       { id: "skin_espresso", label: "Espresso slay", tags: ["skin"] },
+      { id: "skin_mocha", label: "Mocha latte", tags: ["skin", "date"] },
+      { id: "skin_honey", label: "Honey warmth", tags: ["skin", "soft", "date"] },
+      { id: "skin_bronze", label: "Bronzed babe", tags: ["skin", "beach", "glow"] },
+      { id: "skin_olive", label: "Olive neutral", tags: ["skin", "gallery"] },
+      { id: "skin_porcelain", label: "Porcelain glow", tags: ["skin", "soft"] },
     ],
   },
   {
@@ -517,6 +517,14 @@ function renderCharacterLook() {
       const node = el.avatarSvg.querySelector(`#${artId}`);
       if (node) {
         node.classList.add("visible");
+      }
+
+      // Optional front overlays for certain hairstyles (e.g., sleek bun bangs)
+      if (categoryId === "hair" && itemId === "hair_sleek-bun") {
+        const overlay = el.avatarSvg.querySelector("#hair_sleek-bun_overlay");
+        if (overlay) {
+          overlay.classList.add("visible");
+        }
       }
     });
 
