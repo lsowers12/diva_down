@@ -3,11 +3,17 @@
   "private": true,
   "version": "1.0.0",
   "description": "Full diva_down game (frontend + backend)",
+  "main": "server/index.js",
   "scripts": {
-    "start": "cd server && npm start"
+    "start": "node server/index.js"
   },
   "engines": {
     "node": "20.x"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "sqlite3": "^5.1.7"
   }
 }
 
