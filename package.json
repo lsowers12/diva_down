@@ -5,6 +5,9 @@
   "description": "Full diva_down game (frontend + backend)",
   "main": "server/index.js",
   "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
     "start": "node server/index.js"
   },
   "engines": {
@@ -13,7 +16,13 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.21.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.0.0",
+    "vite": "^6.0.0"
   }
 }
 

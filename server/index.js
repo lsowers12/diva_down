@@ -4,9 +4,9 @@ const path = require("path");
 const sqlite3 = require("sqlite3").verbose();
 
 const app = express();
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 3000;
 const DB_PATH = path.join(__dirname, "diva_down.db");
-const PUBLIC_DIR = path.join(__dirname, "..");
+const PUBLIC_DIR = path.join(__dirname, "..", "dist");
 
 app.use(
   cors({
@@ -15,7 +15,7 @@ app.use(
 );
 app.use(express.json());
 
-// Serve the static frontend (index.html, style.css, game.js) from the repo root
+// Serve the built React frontend from the dist directory
 app.use(express.static(PUBLIC_DIR));
 
 // --- In-memory seed data (used to populate DB on first run) ---
@@ -405,15 +405,13 @@ app.get("/health", (req, res) => {
   res.json({ ok: true });
 });
 
-// Fallback: send the main game HTML for the root path
-app.get("/", (req, res) => {
+// Fallback: send the main React HTML for any non-API route
+app.get("*", (req, res) => {
   res.sendFile(path.join(PUBLIC_DIR, "index.html"));
 });
 
 app.listen(PORT, "0.0.0.0", () => {
-  console.log(
-    `diva_down backend with SQLite listening on http://0.0.0.0:${PORT} (Railway-compatible)`
-  );
+  console.log(`diva_down server listening on http://0.0.0.0:${PORT}`);
 });
 
 
