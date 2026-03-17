@@ -401,8 +401,10 @@ app.get("/health", (req, res) => {
   res.json({ ok: true });
 });
 
-app.listen(PORT, () => {
-  console.log(`diva_down backend with SQLite listening on http://localhost:${PORT}`);
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(
+    `diva_down backend with SQLite listening on http://0.0.0.0:${PORT} (Railway-compatible)`
+  );
 });
 
 
