@@ -1,0 +1,13 @@
+{
+  "name": "diva_down",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Full diva_down game (frontend + backend)",
+  "scripts": {
+    "start": "cd server && npm start"
+  },
+  "engines": {
+    "node": "20.x"
+  }
+}
+
