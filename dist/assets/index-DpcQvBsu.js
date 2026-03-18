@@ -1112,14 +1112,6 @@ Error generating stack: `+i.message+`
                     <rect x="72" y="194" width="14" height="60" rx="7" fill="url(#skinGrad)"/>
                     <rect x="94" y="194" width="14" height="60" rx="7" fill="url(#skinGrad)"/>
                   </g>
-                  <g id="back-hair-layer">
-                    <g id="hair_bubble-pigtails_back_art" class="avatar-piece"><path d="M64 28 Q90 6 116 28 Q116 52 104 66 Q90 72 76 66 Q64 52 64 28Z" fill="#3a1b4a"/><circle cx="58" cy="62" r="10" fill="#5c2a7a"/><circle cx="122" cy="62" r="10" fill="#5c2a7a"/></g>
-                    <g id="hair_sleek-bun_back_art" class="avatar-piece"><path d="M60 24 Q90 6 120 24 Q118 56 106 74 Q90 82 74 74 Q62 62 60 24Z" fill="#1b1025"/></g>
-                    <g id="hair_beach-waves_back_art" class="avatar-piece"><path d="M60 38 Q90 18 120 38 L118 86 Q116 120 108 146 Q100 168 90 172 Q80 168 72 146 Q64 120 62 86Z" fill="#d38f5b"/></g>
-                    <g id="hair_space-buns_back_art" class="avatar-piece"><ellipse cx="90" cy="28" rx="26" ry="14" fill="#2b103f"/></g>
-                    <g id="hair_claw-clip_back_art" class="avatar-piece"><path d="M70 25 Q90 10 110 25 L108 55 Q90 68 72 55Z" fill="#211626"/></g>
-                    <g id="hair_curtain-bangs_back_art" class="avatar-piece"><path d="M60 38 Q90 22 120 38 L118 78 Q116 110 108 136 Q100 156 90 160 Q80 156 72 136 Q64 110 62 78Z" fill="#2a1835"/></g>
-                  </g>
                   <g id="back-dress-layer">
                     <g id="dress_slip-dress_back_art" class="avatar-piece"><path d="M58 96 Q90 88 122 96 L118 194 Q90 208 62 194Z" fill="#e8d5e8" stroke="#c4a8c4" stroke-width="1"/></g>
                     <g id="dress_ballgown_back_art" class="avatar-piece"><path d="M50 96 Q90 80 130 96 Q128 140 120 200 Q90 220 60 200 Q52 140 50 96Z" fill="#3d1a4a" stroke="#5c2a6a" stroke-width="1"/></g>
@@ -1143,6 +1135,14 @@ Error generating stack: `+i.message+`
                     <g id="bottom_tailored-trousers_back_art" class="avatar-piece"><path d="M66 140 L114 140 L110 216 L70 216Z" fill="#1a1a1a"/></g>
                     <g id="bottom_knitted-shorts_back_art" class="avatar-piece"><path d="M64 140 Q90 136 116 140 L112 175 Q90 182 68 175Z" fill="#c7d3c7"/></g>
                     <g id="bottom_wide-leg_back_art" class="avatar-piece"><path d="M58 140 L62 216 L70 218 L74 160 Q90 158 106 160 L110 218 L118 216 L122 140Z" fill="#2a2a2a"/></g>
+                  </g>
+                  <g id="back-hair-layer">
+                    <g id="hair_bubble-pigtails_back_art" class="avatar-piece"><path d="M64 28 Q90 6 116 28 Q116 52 104 66 Q90 72 76 66 Q64 52 64 28Z" fill="#3a1b4a"/><circle cx="58" cy="62" r="10" fill="#5c2a7a"/><circle cx="122" cy="62" r="10" fill="#5c2a7a"/></g>
+                    <g id="hair_sleek-bun_back_art" class="avatar-piece"><path d="M60 24 Q90 6 120 24 Q118 56 106 74 Q90 82 74 74 Q62 62 60 24Z" fill="#1b1025"/></g>
+                    <g id="hair_beach-waves_back_art" class="avatar-piece"><path d="M60 38 Q90 18 120 38 L118 86 Q116 120 108 146 Q100 168 90 172 Q80 168 72 146 Q64 120 62 86Z" fill="#d38f5b"/></g>
+                    <g id="hair_space-buns_back_art" class="avatar-piece"><ellipse cx="90" cy="28" rx="26" ry="14" fill="#2b103f"/></g>
+                    <g id="hair_claw-clip_back_art" class="avatar-piece"><path d="M70 25 Q90 10 110 25 L108 55 Q90 68 72 55Z" fill="#211626"/></g>
+                    <g id="hair_curtain-bangs_back_art" class="avatar-piece"><path d="M60 38 Q90 22 120 38 L118 78 Q116 110 108 136 Q100 156 90 160 Q80 156 72 136 Q64 110 62 78Z" fill="#2a1835"/></g>
                   </g>
                   <g id="back-shoes-layer">
                     <g id="shoes_holographic-platforms_back_art" class="avatar-piece"><path d="M70 250 L80 254 L100 254 L110 250 M94 250 L104 254 L124 254 L134 250" stroke="#b8c4ff" stroke-width="4" fill="none"/></g>
