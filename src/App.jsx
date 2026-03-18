@@ -1,4 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
+import avatarFrontSvgRaw from "./assets/avatarFront.svg?raw";
+import avatarBackSvgRaw from "./assets/avatarBack.svg?raw";
+import queenSvgRaw from "./assets/queen.svg?raw";
 
 const skinTones = {
   skin_espresso: { top: "#c58c5c", bottom: "#8b4a28" },
@@ -308,9 +311,13 @@ export function App() {
 
   const avatarSvgRef = useRef(null);
   const avatarBackSvgRef = useRef(null);
+  const avatarFrontMountRef = useRef(null);
+  const avatarBackMountRef = useRef(null);
   const speechBubbleRef = useRef(null);
   const characterPortraitRef = useRef(null);
   const resultQueenWrapRef = useRef(null);
+  const resultAvatarMountRef = useRef(null);
+  const resultQueenSvgMountRef = useRef(null);
 
   const eventIds = useMemo(() => events.map((e) => e.id), []);
 
@@ -385,6 +392,12 @@ export function App() {
   }, [currentEvent, result]);
 
   useEffect(() => {
+    // Ensure our refs point at the *actual* inline SVG elements created from the raw markup.
+    avatarSvgRef.current = avatarFrontMountRef.current?.querySelector("svg") || null;
+    avatarBackSvgRef.current = avatarBackMountRef.current?.querySelector("svg") || null;
+  }, []);
+
+  useEffect(() => {
     const svg = avatarSvgRef.current;
     if (!svg) return;
 
@@ -437,6 +450,24 @@ export function App() {
   }, [selections]);
 
   useEffect(() => {
+    if (!resultOpen) return;
+    const mount = resultAvatarMountRef.current;
+    const svg = avatarSvgRef.current;
+    if (!mount || !svg) return;
+
+    mount.innerHTML = "";
+    const clone = svg.cloneNode(true);
+    clone.removeAttribute("id");
+    mount.appendChild(clone);
+  }, [resultOpen, selections]);
+
+  useEffect(() => {
+    const mount = resultQueenSvgMountRef.current;
+    if (!mount) return;
+    mount.innerHTML = queenSvgRaw;
+  }, []);
+
+  useEffect(() => {
     if (!resultQueenWrapRef.current) return;
     if (!result) {
       resultQueenWrapRef.current.dataset.tier = "idle";
@@ -446,14 +477,6 @@ export function App() {
   }, [result]);
 
   const scoreLabel = result ? `${result.score} / 100` : "– / 100";
-  const ratingBadgeClass =
-    result?.tier === "slay"
-      ? "rating-badge rating-badge--slay"
-      : result?.tier === "flop"
-        ? "rating-badge rating-badge--flop"
-        : result?.tier === "mid"
-          ? "rating-badge rating-badge--mid"
-          : "rating-badge rating-badge--idle";
 
   return (
     <div className="app-shell">
@@ -474,27 +497,20 @@ export function App() {
               {/* Front avatar */}
               <div className="avatar-view avatar-front">
                 <span className="avatar-label">Front</span>
-                <svg
-                  ref={avatarSvgRef}
-                  className="avatar-svg"
-                  viewBox="0 0 180 260"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  {/* The SVG content is left exactly as in the original HTML to preserve visuals */}
-                  {/* ... SVG paths/groups come from existing index.html ... */}
-                </svg>
+                <div
+                  ref={avatarFrontMountRef}
+                  style={{ display: "contents" }}
+                  dangerouslySetInnerHTML={{ __html: avatarFrontSvgRaw }}
+                />
               </div>
               {/* Back avatar */}
               <div className="avatar-view avatar-back">
                 <span className="avatar-label">Back</span>
-                <svg
-                  ref={avatarBackSvgRef}
-                  className="avatar-svg"
-                  viewBox="0 0 180 260"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  {/* ... back SVG content from original index.html ... */}
-                </svg>
+                <div
+                  ref={avatarBackMountRef}
+                  style={{ display: "contents" }}
+                  dangerouslySetInnerHTML={{ __html: avatarBackSvgRaw }}
+                />
               </div>
             </div>
             <div className="speech-bubble" ref={speechBubbleRef}>
@@ -570,20 +586,6 @@ export function App() {
         </section>
       </main>
 
-      {/* Rating strip (matches original styling) */}
-      <section className="panel rating-panel">
-        <div className="rating-score" id="ratingScore">
-          {scoreLabel}
-        </div>
-        <div className={ratingBadgeClass} id="ratingBadge">
-          {result?.title || "Waiting for a look…"}
-        </div>
-        <p className="rating-narrative" id="ratingNarrative">
-          {result?.text ||
-            "She’s waiting. Build a look and lock it in to see if you understood the assignment."}
-        </p>
-      </section>
-
       {/* Result overlay */}
       <section
         id="resultScreen"
@@ -608,17 +610,18 @@ export function App() {
             <div className="result-body">
               <div className="result-avatar-wrap">
                 <div className="result-avatar-halo" />
-                <div id="resultAvatarMount" className="result-avatar-mount">
-                  {/* We rely on the queen SVG below; current outfit is already shown on main avatar */}
-                </div>
+                <div
+                  id="resultAvatarMount"
+                  className="result-avatar-mount"
+                  ref={resultAvatarMountRef}
+                />
                 <div
                   id="resultQueenWrap"
                   className="result-queen-wrap"
                   data-tier="idle"
                   ref={resultQueenWrapRef}
                 >
-                  {/* SVG copied from original index.html */}
-                  {/* ... queen SVG content ... */}
+                  <div ref={resultQueenSvgMountRef} />
                   <span className="result-queen-name">Eye-con</span>
                 </div>
               </div>
